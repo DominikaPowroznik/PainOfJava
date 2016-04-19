@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: d3aefa47d19c469478bb04abcf6fbb37
-timeCreated: 1460974517
+timeCreated: 1461006653
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Ground
+    21300002: PlatformLong
+    21300004: PlatformMedium
+    21300006: PlatformShort
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,18 +57,51 @@ TextureImporter:
     - name: Ground
       rect:
         serializedVersion: 2
-        x: 6
-        y: 525
-        width: 788
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 8
+        y: 492
+        width: 100
+        height: 100
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -394, y: 34}
-        - {x: -394, y: -34}
-        - {x: 394, y: -34}
-        - {x: 394, y: 34}
+      - - {x: -50, y: 0}
+        - {x: -50, y: -100}
+        - {x: 50, y: -100}
+        - {x: 50, y: 0}
+    - name: PlatformLong
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 480
+        width: 100
+        height: 10
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlatformMedium
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 468
+        width: 50
+        height: 10
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlatformShort
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 468
+        width: 10
+        height: 10
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
