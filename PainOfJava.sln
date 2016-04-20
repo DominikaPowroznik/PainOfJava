@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainOfJava.CSharp.Plugins", "PainOfJava.CSharp.Plugins.csproj", "{F4B0DD84-0F47-4D35-BD59-03F5E0BD997C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainOfJava.CSharp", "PainOfJava.CSharp.csproj", "{130059C6-D719-9D83-EA46-4CE7BD1D57EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{F4B0DD84-0F47-4D35-BD59-03F5E0BD997C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4B0DD84-0F47-4D35-BD59-03F5E0BD997C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4B0DD84-0F47-4D35-BD59-03F5E0BD997C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{130059C6-D719-9D83-EA46-4CE7BD1D57EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{130059C6-D719-9D83-EA46-4CE7BD1D57EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{130059C6-D719-9D83-EA46-4CE7BD1D57EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{130059C6-D719-9D83-EA46-4CE7BD1D57EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

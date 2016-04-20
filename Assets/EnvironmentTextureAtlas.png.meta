@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d3aefa47d19c469478bb04abcf6fbb37
-timeCreated: 1461006653
+timeCreated: 1461162148
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: PlatformLong
     21300004: PlatformMedium
     21300006: PlatformShort
+    21300008: StoneWall
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -102,6 +103,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+    - name: StoneWall
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 5
+        width: 100
+        height: 100
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 0}
+        - {x: -50, y: -100}
+        - {x: 50, y: -100}
+        - {x: 50, y: 0}
     outline: []
   spritePackingTag: 
   userData: 
