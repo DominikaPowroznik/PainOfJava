@@ -2,6 +2,7 @@
 
 NTP Project
 
+v0.3 - clamping camera on y (TODO: non-fixed camera y position, x restricition), added Player script & GameMaster script, killing Player when he falls down
 v0.25 - added surfaces, player can jump only on them (earlier he could jump on the edges of grounds); added temporary "enemy" walking from left to right, added temporary "question point"
 v0.21 - added all temporal environment for Level1
 v0.2 - added temporary environment, point of camera chenged
