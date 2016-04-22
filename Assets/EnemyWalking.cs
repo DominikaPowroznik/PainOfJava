@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace UnityStandardAssets._2D
@@ -6,7 +6,6 @@ namespace UnityStandardAssets._2D
     [RequireComponent(typeof(PlatformerCharacter2D))]
     public class EnemyWalking : MonoBehaviour
     {
-
         private PlatformerCharacter2D character;
 
         public Transform from, to;
@@ -24,9 +23,15 @@ namespace UnityStandardAssets._2D
 
         GameObject player;
 
+        //added to avoid messing up with animation
+        private Rigidbody2D rigidbody2D;
+
         private void Awake()
         {
             character = GetComponent<PlatformerCharacter2D>();
+
+            //added to avoid messing up with animation
+            rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
@@ -93,7 +98,12 @@ namespace UnityStandardAssets._2D
                     }
                 }
             }
-            character.Move(h, crouch, jump);
+
+            //uncomment when you have animation
+            //character.Move(h, crouch, jump);
+
+            //added to avoid messing up with animation
+            rigidbody2D.velocity = new Vector2(h*8, rigidbody2D.velocity.y);
         }
 
         private bool isBetween(float what, float from, float to)

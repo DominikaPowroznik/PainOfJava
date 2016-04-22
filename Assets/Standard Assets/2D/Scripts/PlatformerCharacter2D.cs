@@ -110,5 +110,14 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+        //MY
+        public bool isGrounded()
+        {
+            if (m_Grounded)
+                return true;
+            else
+                return false;
+        }
     }
 }
