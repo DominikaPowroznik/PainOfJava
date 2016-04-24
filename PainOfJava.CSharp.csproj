@@ -69,8 +69,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Camera2DFollow.cs" />
     <Compile Include="Assets\EnemyWalking.cs" />
     <Compile Include="Assets\GameMaster.cs" />
+    <Compile Include="Assets\Platformer2DUserControl.cs" />
+    <Compile Include="Assets\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Player.cs" />
   </ItemGroup>
   <ItemGroup>

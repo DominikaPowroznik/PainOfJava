@@ -17,6 +17,7 @@ namespace UnityStandardAssets._2D
         private float yRestriction;
         private PlatformerCharacter2D character;
         private bool playerFalling;
+        private float searchingForPlayerDelay = 0f;
 
         private float m_OffsetZ;
         private Vector3 m_LastTargetPosition;
@@ -41,6 +42,7 @@ namespace UnityStandardAssets._2D
             //MY: fixing errors when player is killed
             if(target == null)
             {
+                FindPlayer();
                 return;
             }
 
@@ -77,6 +79,20 @@ namespace UnityStandardAssets._2D
             transform.position = newPos;
 
             m_LastTargetPosition = target.transform.position;
+        }
+
+        //MY
+        private void FindPlayer()
+        {
+            if (searchingForPlayerDelay <= Time.time)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                if(player != null)
+                {
+                    target = player;
+                }
+                searchingForPlayerDelay = Time.time + 0.5f;
+            }
         }
     }
 }
