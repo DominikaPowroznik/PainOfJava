@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Camera2DFollow.cs" />
+    <Compile Include="Assets\Enemy.cs" />
     <Compile Include="Assets\EnemyWalking.cs" />
     <Compile Include="Assets\GameMaster.cs" />
     <Compile Include="Assets\Platformer2DUserControl.cs" />

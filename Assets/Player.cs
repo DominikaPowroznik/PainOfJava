@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
     [System.Serializable]
 	public class PlayerStats
     {
-        public int Health = 100;
+        public int health = 100;
     }
 
     public PlayerStats playerStats = new PlayerStats();
@@ -23,10 +23,19 @@ public class Player : MonoBehaviour {
 
     public void DamagePlayer(int damage)
     {
-        playerStats.Health -= damage;
-        if(playerStats.Health <= 0)
+        playerStats.health -= damage;
+        if(playerStats.health <= 0)
         {
             GameMaster.KillPlayer(this);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy = collision.collider.GetComponent<Enemy>();
+        if(enemy != null)
+        {
+            DamagePlayer(enemy.enemyStats.damage);
         }
     }
 }
