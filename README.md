@@ -2,6 +2,7 @@
 
 NTP Project
 
+v0.5 - added enemy srcipt, killenemy method (not used yet), enemy hurts player on collision enter
 v0.4 - player respawning after delay at the respawn point, camera searches for player at intervals
 v0.31 - non-fixed camera clamping y position done
 v0.3 - clamping camera on y (TODO: non-fixed camera y position, x restricition), added Player script & GameMaster script, killing Player when he falls down
