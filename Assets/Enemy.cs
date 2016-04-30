@@ -6,14 +6,40 @@ public class Enemy : MonoBehaviour {
     [System.Serializable]
     public class EnemyStats
     {
-        public int health = 100;
+        public int maxHealth = 100;
 
-        public int damage = 20;
+        private int _curHealth;
+        public int curHealth
+        {
+            get { return _curHealth; }
+            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
+        }
+
+        public int damage = 5;
+
+        public void Init()
+        {
+            curHealth = maxHealth;
+        }
     }
+
+    public int fallBoundary = -10;
 
     public EnemyStats enemyStats = new EnemyStats();
 
-    public int fallBoundary = -10;
+    [Header("Optional: ")]
+    [SerializeField]
+    private StatusIndicator statusIndicator;
+
+    void Start()
+    {
+        enemyStats.Init();
+
+        if(statusIndicator != null)
+        {
+            statusIndicator.SetHealth(enemyStats.curHealth, enemyStats.maxHealth);
+        }
+    }
 
     public void Update()
     {
@@ -25,10 +51,24 @@ public class Enemy : MonoBehaviour {
 
     public void DamageEnemy(int damage)
     {
-        enemyStats.health -= damage;
-        if (enemyStats.health <= 0)
+        enemyStats.curHealth -= damage;
+        if (enemyStats.curHealth <= 0)
         {
             GameMaster.KillEnemy(this);
+        }
+
+        if (statusIndicator != null)
+        {
+            statusIndicator.SetHealth(enemyStats.curHealth, enemyStats.maxHealth);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player player = collision.collider.GetComponent<Player>();
+        if (player != null)
+        {
+            DamageEnemy(player.playerStats.damage);
         }
     }
 }
