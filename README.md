@@ -2,6 +2,7 @@
 
 NTP Project
 
+v0.7 - slightly edited player&enemy stats subclass, status indicator (health bar) above player&enemy, edited method Flip() from PlatformCharacter2D (health bar is not getting reversed)
 v0.6 - added example of QuestionUI and script for turning it on when collision
 v0.5 - added enemy srcipt, killenemy method (not used yet), enemy hurts player on collision enter
 v0.4 - player respawning after delay at the respawn point, camera searches for player at intervals
