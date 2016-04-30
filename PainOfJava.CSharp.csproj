@@ -76,6 +76,7 @@
     <Compile Include="Assets\Platformer2DUserControl.cs" />
     <Compile Include="Assets\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\QuestionPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
