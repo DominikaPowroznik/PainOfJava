@@ -2,6 +2,7 @@
 
 NTP Project
 
+v0.6 - added example of QuestionUI and script for turning it on when collision
 v0.5 - added enemy srcipt, killenemy method (not used yet), enemy hurts player on collision enter
 v0.4 - player respawning after delay at the respawn point, camera searches for player at intervals
 v0.31 - non-fixed camera clamping y position done
