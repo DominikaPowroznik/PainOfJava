@@ -1,0 +1,47 @@
+{
+  "questions":
+  [
+    {
+      "question": "Do jakiej grupy zwierząt należą dziobaki?",
+      "answers": [
+      {
+        "content": "ptaków",
+        "answer": false
+      },
+      {
+        "content": "ssaków",
+        "answer": true
+      },
+      {
+        "content": "płazów",
+        "answer": false
+      },
+      {
+        "content": "gadów",
+        "answer": false
+      }
+      ]
+    },
+    {
+      "question": "Gdzie to jest?",
+      "answers": [
+      {
+        "content": "W kiblu",
+        "answer": false
+      },
+      {
+        "content": "W kuchni",
+        "answer": true
+      },
+	  {
+        "content": "Na dachu",
+        "answer": false
+      },
+      {
+        "content": "W żłobie",
+        "answer": true
+      }
+      ]
+    }
+  ]
+}

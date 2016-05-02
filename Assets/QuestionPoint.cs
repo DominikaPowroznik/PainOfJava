@@ -1,51 +1,99 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.IO;
+using LitJson;
 
 public class QuestionPoint : MonoBehaviour {
 
     public GameObject questionCanvas;
 
-	void OnTriggerEnter2D(Collider2D col)
+    private Transform question;
+    private Toggle[] answerToggles = new Toggle[4];
+
+    private string jsonString;
+    private JsonData itemData;
+    private JsonData q;
+
+    private int questionCount;
+    private int[] questionNumber;
+    private static int index = 0;
+
+    void Start()
+    {
+        jsonString = File.ReadAllText(Application.dataPath + "/Questions.json");
+        itemData = JsonMapper.ToObject(jsonString);
+
+        questionCount = itemData["questions"].Count;
+
+        questionNumber = new int[questionCount];
+        for (int i = 0; i < questionCount; i++)
+        {
+            questionNumber[i] = i;
+        }
+        RandomizeArray(questionNumber);
+
+        Debug.Log("Question number: " + questionNumber[0]);
+        //Debug.Log(itemData["questions"][1]["question"]);
+    }
+
+    void RandomizeArray(int[] array)
+    {
+        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+        for (int i = 0; i < array.Length; i++)
+        {
+            int tmp = array[i];
+            int random = Random.Range(i, array.Length);
+            array[i] = array[random];
+            array[random] = tmp;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
     {
         //pausing the game
         Time.timeScale = 0.0f;
+
+        Debug.Log("Index: " + index);
+
+        question = questionCanvas.transform.Find("Question");
+        q = itemData["questions"][questionNumber[index]];
+        index++;
+        question.GetComponentInChildren<Text>().text = q["question"].ToString();
+
+        for (int i  = 0; i < answerToggles.Length; i++)
+        {
+            answerToggles[i] = questionCanvas.transform.Find("Answers").Find(i.ToString()).GetComponent<Toggle>();
+            answerToggles[i].GetComponentInChildren<Text>().text = q["answers"][i]["content"].ToString();
+        }
 
         questionCanvas.SetActive(true);
     }
 
     public void Check()
     {
-        Transform question = questionCanvas.transform.Find("Question");
-        Toggle a = question.Find("A").GetComponent<Toggle>();
-        Toggle b = question.Find("B").GetComponent<Toggle>();
-        Toggle c = question.Find("C").GetComponent<Toggle>();
-        Toggle d = question.Find("D").GetComponent<Toggle>();
-
-        if (a.isOn)
+        for (int i = 0; i < answerToggles.Length; i++)
         {
-            a.GetComponentInChildren<Text>().color = Color.red;
-        }
+            JsonData a = q["answers"][i]["answer"];
 
-        if (b.isOn)
-        {
-            b.GetComponentInChildren<Text>().color = Color.green;
-        }
+            if (a.Equals(true))
+            {
+                answerToggles[i].GetComponentInChildren<Text>().color = Color.green;
+            }
+            else
+            {
+                answerToggles[i].GetComponentInChildren<Text>().color = Color.red;
+            }
 
-        if (c.isOn)
-        {
-            c.GetComponentInChildren<Text>().color = Color.red;
-        }
+            //if (answerToggles[i].isOn)
+            //{
+            //}
+            //else
+            //{
+            //}
 
-        if (d.isOn)
-        {
-            d.GetComponentInChildren<Text>().color = Color.red;
+            answerToggles[i].interactable = false;
         }
-
-        a.interactable = false;
-        b.interactable = false;
-        c.interactable = false;
-        d.interactable = false;
 
         Button button = questionCanvas.transform.Find("Button").GetComponent<Button>();
         button.GetComponentInChildren<Text>().text = "Graj dalej";
