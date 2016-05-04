@@ -76,21 +76,19 @@ public class QuestionPoint : MonoBehaviour {
         {
             JsonData a = q["answers"][i]["answer"];
 
-            if (a.Equals(true))
+            if (a.Equals(true) && answerToggles[i].isOn)
             {
-                answerToggles[i].GetComponentInChildren<Text>().color = Color.green;
+                answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
+                answerToggles[i].GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
             }
-            else
+            else if (a.Equals(true) && !answerToggles[i].isOn)
             {
-                answerToggles[i].GetComponentInChildren<Text>().color = Color.red;
+                answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
             }
-
-            //if (answerToggles[i].isOn)
-            //{
-            //}
-            //else
-            //{
-            //}
+            else if (a.Equals(false) && answerToggles[i].isOn)
+            {
+                answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.8f, 0.0f, 0.0f, 1.0f);
+            }
 
             answerToggles[i].interactable = false;
         }
