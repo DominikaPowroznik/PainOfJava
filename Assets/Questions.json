@@ -3,7 +3,8 @@
   [
     {
       "question": "Do jakiej grupy zwierząt należą dziobaki?",
-      "answers": [
+      "answers":
+	  [
       {
         "content": "ptaków",
         "answer": false
@@ -24,7 +25,8 @@
     },
     {
       "question": "Gdzie to jest?",
-      "answers": [
+      "answers":
+	  [
       {
         "content": "W kiblu",
         "answer": false
@@ -40,6 +42,28 @@
       {
         "content": "W żłobie",
         "answer": true
+      }
+      ]
+    },
+    {
+      "question": "Jaka grupa krwi jest uniwersalnym dawcą?",
+      "answers":
+	  [
+      {
+        "content": "0",
+        "answer": true
+      },
+      {
+        "content": "A",
+        "answer": false
+      },
+	  {
+        "content": "B",
+        "answer": false
+      },
+      {
+        "content": "AB",
+        "answer": false
       }
       ]
     }

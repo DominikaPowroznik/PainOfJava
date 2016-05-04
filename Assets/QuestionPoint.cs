@@ -1,91 +1,58 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
-using System.IO;
-using LitJson;
 
-public class QuestionPoint : MonoBehaviour {
+public class QuestionPoint : QuestionsMaster {
 
     public GameObject questionCanvas;
 
-    private Transform question;
+    private Transform questionTransform;
     private Toggle[] answerToggles = new Toggle[4];
 
-    private string jsonString;
-    private JsonData itemData;
-    private JsonData q;
-
-    private int questionCount;
-    private int[] questionNumber;
     private static int index = 0;
 
-    void Start()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        jsonString = File.ReadAllText(Application.dataPath + "/Questions.json");
-        itemData = JsonMapper.ToObject(jsonString);
+        Player player = collider.GetComponent<Player>();
 
-        questionCount = itemData["questions"].Count;
-
-        questionNumber = new int[questionCount];
-        for (int i = 0; i < questionCount; i++)
+        if (player != null)
         {
-            questionNumber[i] = i;
+            if (index >= questionCount)
+            {
+                index = 0;
+            }
+
+            //pausing the game
+            Time.timeScale = 0.0f;
+
+            questionTransform = questionCanvas.transform.Find("Question");
+            questionTransform.GetComponentInChildren<Text>().text = questions[index].question;
+
+            for (int i = 0; i < answerToggles.Length; i++)
+            {
+                answerToggles[i] = questionCanvas.transform.Find("Answers").Find(i.ToString()).GetComponent<Toggle>();
+                answerToggles[i].GetComponentInChildren<Text>().text = questions[index].answers[i].content;
+            }
+
+            questionCanvas.SetActive(true);
         }
-        RandomizeArray(questionNumber);
-
-        Debug.Log("Question number: " + questionNumber[0]);
-        //Debug.Log(itemData["questions"][1]["question"]);
-    }
-
-    void RandomizeArray(int[] array)
-    {
-        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
-        for (int i = 0; i < array.Length; i++)
-        {
-            int tmp = array[i];
-            int random = Random.Range(i, array.Length);
-            array[i] = array[random];
-            array[random] = tmp;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        //pausing the game
-        Time.timeScale = 0.0f;
-
-        Debug.Log("Index: " + index);
-
-        question = questionCanvas.transform.Find("Question");
-        q = itemData["questions"][questionNumber[index]];
-        index++;
-        question.GetComponentInChildren<Text>().text = q["question"].ToString();
-
-        for (int i  = 0; i < answerToggles.Length; i++)
-        {
-            answerToggles[i] = questionCanvas.transform.Find("Answers").Find(i.ToString()).GetComponent<Toggle>();
-            answerToggles[i].GetComponentInChildren<Text>().text = q["answers"][i]["content"].ToString();
-        }
-
-        questionCanvas.SetActive(true);
     }
 
     public void Check()
     {
         for (int i = 0; i < answerToggles.Length; i++)
         {
-            JsonData a = q["answers"][i]["answer"];
+            bool a = questions[index].answers[i].answer.ToLower().Equals("true");
 
-            if (a.Equals(true) && answerToggles[i].isOn)
+            if (a && answerToggles[i].isOn)
             {
                 answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
                 answerToggles[i].GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
             }
-            else if (a.Equals(true) && !answerToggles[i].isOn)
+            else if (a && !answerToggles[i].isOn)
             {
                 answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
             }
-            else if (a.Equals(false) && answerToggles[i].isOn)
+            else if (!a && answerToggles[i].isOn)
             {
                 answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.8f, 0.0f, 0.0f, 1.0f);
             }
@@ -100,6 +67,8 @@ public class QuestionPoint : MonoBehaviour {
 
     public void GoBack()
     {
+        index++;
+
         //unpausing the game
         Time.timeScale = 1.0f;
 
