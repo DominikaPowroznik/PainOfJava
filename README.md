@@ -2,6 +2,7 @@
 
 NTP Project
 
+v0.95 - new object holding all question points, added QuestionMaster script (reading json & loading it to the struct), QuestionPoint script edited (inherit from QM; displaying data & checking answers)
 v0.91 - fixed answering questions (text color changes if it was true but not checked)
 v0.9 - added temporary .json file, edited QuestionPoint scr - reading data from json, load questions & checking answers with it (TODO: color is changing accordingly to true/false from file, not using player input)
 v0.8 - edited QuestionPoint script - pausing game, checking answers (ilustrative changing color, uninteractable toggles & changed button text), destroing point
