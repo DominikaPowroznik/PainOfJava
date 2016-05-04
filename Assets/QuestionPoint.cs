@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class QuestionPoint : QuestionsMaster {
+public class QuestionPoint : MonoBehaviour {
 
     public GameObject questionCanvas;
 
@@ -19,21 +19,22 @@ public class QuestionPoint : QuestionsMaster {
 
         if (player != null)
         {
-            if (index >= questionCount)
+            if (index >= QuestionsMaster.questionCount)
             {
-                index = 0;
+                Debug.LogError("Out of questions from json file!");
+                return;
             }
 
             //pausing the game
             Time.timeScale = 0.0f;
 
             questionTransform = questionCanvas.transform.Find("Question");
-            questionTransform.GetComponentInChildren<Text>().text = questions[index].question;
+            questionTransform.GetComponentInChildren<Text>().text = QuestionsMaster.questions[index].question;
 
             for (int i = 0; i < answerToggles.Length; i++)
             {
                 answerToggles[i] = questionCanvas.transform.Find("Answers").Find(i.ToString()).GetComponent<Toggle>();
-                answerToggles[i].GetComponentInChildren<Text>().text = questions[index].answers[i].content;
+                answerToggles[i].GetComponentInChildren<Text>().text = QuestionsMaster.questions[index].answers[i].content;
             }
 
             questionCanvas.SetActive(true);
@@ -50,7 +51,7 @@ public class QuestionPoint : QuestionsMaster {
 
         for (int i = 0; i < answerToggles.Length; i++)
         {
-            bool answer = questions[index].answers[i].answer.ToLower().Equals("true");
+            bool answer = QuestionsMaster.questions[index].answers[i].answer.ToLower().Equals("true");
             
             if (answer && answerToggles[i].isOn)
             {
@@ -80,19 +81,10 @@ public class QuestionPoint : QuestionsMaster {
             Player.PlayerStats.LostPoints++;
         }
 
-        //Button button = questionCanvas.transform.Find("Button").GetComponent<Button>();
+        PointsIndicator.SetPoints(Player.PlayerStats.WonPoints, Player.PlayerStats.GetAllPoints());
 
-        //Destroy(button.gameObject);
-
-        //RemoveListener(button, Check);
-
-        //button.onClick.RemoveListener(Check);
-        //button.onClick.RemoveListener(() => Check());
         button.onClick.RemoveAllListeners();
-
-        //button.GetComponentInChildren<Text>().text = "Graj dalej";
-        //button.onClick.AddListener(() => GoBack());
-
+        button.GetComponentInChildren<Text>().text = "Graj dalej";
         button.onClick.AddListener(GoBack);
     }
 

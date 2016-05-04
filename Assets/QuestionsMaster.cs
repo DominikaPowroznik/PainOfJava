@@ -19,8 +19,8 @@ public class QuestionsMaster : MonoBehaviour {
     private string jsonString;
     private JsonData itemData;
 
-    protected int questionCount;
-    protected Question[] questions;
+    public static int questionCount;
+    public static Question[] questions;
 
     void Start()
     {
@@ -44,7 +44,7 @@ public class QuestionsMaster : MonoBehaviour {
                 questions[i].answers[j].answer = q["answers"][j]["answer"].ToString();
             }
         }
-
+        
         RandomizeQuestions(questions);
     }
 
@@ -57,6 +57,11 @@ public class QuestionsMaster : MonoBehaviour {
             int random = Random.Range(i, array.Length);
             array[i] = array[random];
             array[random] = tmp;
+        }
+        Debug.Log(array.Length);
+        for (int i = 0; i < array.Length; i++)
+        {
+            Debug.Log("[" + i + "]->" + array[i].question);
         }
     }
 

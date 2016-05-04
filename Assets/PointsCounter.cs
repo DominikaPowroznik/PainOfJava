@@ -13,6 +13,6 @@ public class PointsCounter : MonoBehaviour {
 	
 	void Update ()
     {
-        pointsText.text = "PUNKTY: " + Player.PlayerStats.WonPoints + "/" + Player.PlayerStats.getAllPoints();
+        pointsText.text = Player.PlayerStats.WonPoints + " / " + QuestionsMaster.questionCount;
     }
 }

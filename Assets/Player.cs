@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
             curHealth = maxHealth;
         }
 
-        public static int getAllPoints()
+        public static int GetAllPoints()
         {
             return WonPoints + LostPoints;
         }
