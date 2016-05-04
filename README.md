@@ -2,6 +2,7 @@
 
 NTP Project
 
+v0.98 - added PointsIndicator & Mark UI, fixed problem with invoking Start() multiple times (QuestionPoints don't inherit from QuestionMaster any more), now questions are truly random, I hope...
 v0.97 - edited Player class (fields for won and lost points), PlayerInfoUI with Points text and new script PlayerCounter, fixed nasty problem with double invoking Check() func when button clicked
 v0.95 - new object holding all question points, added QuestionMaster script (reading json & loading it to the struct), QuestionPoint script edited (inherit from QM; displaying data & checking answers)
 v0.91 - fixed answering questions (text color changes if it was true but not checked)
