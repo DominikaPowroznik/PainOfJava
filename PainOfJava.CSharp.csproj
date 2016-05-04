@@ -79,6 +79,7 @@
     <Compile Include="Assets\Platformer2DUserControl.cs" />
     <Compile Include="Assets\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\PointsCounter.cs" />
     <Compile Include="Assets\QuestionPoint.cs" />
     <Compile Include="Assets\QuestionsMaster.cs" />
     <Compile Include="Assets\StatusIndicator.cs" />

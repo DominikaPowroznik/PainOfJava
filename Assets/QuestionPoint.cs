@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class QuestionPoint : QuestionsMaster {
 
@@ -7,6 +8,8 @@ public class QuestionPoint : QuestionsMaster {
 
     private Transform questionTransform;
     private Toggle[] answerToggles = new Toggle[4];
+
+    private Button button;
 
     private static int index = 0;
 
@@ -34,35 +37,63 @@ public class QuestionPoint : QuestionsMaster {
             }
 
             questionCanvas.SetActive(true);
+
+            button = questionCanvas.transform.Find("Button").GetComponent<Button>();
+            button.onClick.AddListener(Check);
         }
     }
 
     public void Check()
     {
+        Debug.Log("hej");
+        bool check = true;
+
         for (int i = 0; i < answerToggles.Length; i++)
         {
-            bool a = questions[index].answers[i].answer.ToLower().Equals("true");
-
-            if (a && answerToggles[i].isOn)
+            bool answer = questions[index].answers[i].answer.ToLower().Equals("true");
+            
+            if (answer && answerToggles[i].isOn)
             {
                 answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
                 answerToggles[i].GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
             }
-            else if (a && !answerToggles[i].isOn)
+            else if (answer && !answerToggles[i].isOn)
             {
                 answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
+                check = false;
             }
-            else if (!a && answerToggles[i].isOn)
+            else if (!answer && answerToggles[i].isOn)
             {
                 answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.8f, 0.0f, 0.0f, 1.0f);
+                check = false;
             }
 
             answerToggles[i].interactable = false;
         }
 
-        Button button = questionCanvas.transform.Find("Button").GetComponent<Button>();
-        button.GetComponentInChildren<Text>().text = "Graj dalej";
-        button.onClick.AddListener(() => GoBack());
+        if (check)
+        {
+            Player.PlayerStats.WonPoints++;
+        }
+        else
+        {
+            Player.PlayerStats.LostPoints++;
+        }
+
+        //Button button = questionCanvas.transform.Find("Button").GetComponent<Button>();
+
+        //Destroy(button.gameObject);
+
+        //RemoveListener(button, Check);
+
+        //button.onClick.RemoveListener(Check);
+        //button.onClick.RemoveListener(() => Check());
+        button.onClick.RemoveAllListeners();
+
+        //button.GetComponentInChildren<Text>().text = "Graj dalej";
+        //button.onClick.AddListener(() => GoBack());
+
+        button.onClick.AddListener(GoBack);
     }
 
     public void GoBack()

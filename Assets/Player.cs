@@ -15,11 +15,30 @@ public class Player : MonoBehaviour {
             set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
         }
 
+        private static int _wonPoints = 0;
+        public static int WonPoints
+        {
+            get { return _wonPoints; }
+            set { _wonPoints = value; }
+        }
+
+        private static int _lostPoints = 0;
+        public static int LostPoints
+        {
+            get { return _lostPoints; }
+            set { _lostPoints = value; }
+        }
+
         public int damage = 5;
 
         public void Init()
         {
             curHealth = maxHealth;
+        }
+
+        public static int getAllPoints()
+        {
+            return WonPoints + LostPoints;
         }
     }
 
