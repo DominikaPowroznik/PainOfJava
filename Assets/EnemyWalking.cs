@@ -103,7 +103,7 @@ namespace UnityStandardAssets._2D
             //character.Move(h, crouch, jump);
 
             //added to avoid messing up with animation
-            rigidbody2D.velocity = new Vector2(h*8, rigidbody2D.velocity.y);
+            rigidbody2D.velocity = new Vector2(h*10, rigidbody2D.velocity.y);
         }
 
         private bool isBetween(float what, float from, float to)

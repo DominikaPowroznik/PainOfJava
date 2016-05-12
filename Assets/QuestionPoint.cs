@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class QuestionPoint : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class QuestionPoint : MonoBehaviour {
 
     private static int index = 0;
 
+    public static List<int> wrongIndexes = new List<int>();
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         Player player = collider.GetComponent<Player>();
@@ -22,6 +25,13 @@ public class QuestionPoint : MonoBehaviour {
             if (index >= QuestionsMaster.questionCount)
             {
                 Debug.LogError("Out of questions from json file!");
+
+                //TODO: Place it somewhere else
+                QuestionsMaster.arrangeWrongAnswered(wrongIndexes);
+                wrongIndexes.Clear();
+
+                Destroy(this.gameObject);
+
                 return;
             }
 
@@ -46,7 +56,6 @@ public class QuestionPoint : MonoBehaviour {
 
     public void Check()
     {
-        Debug.Log("hej");
         bool check = true;
 
         for (int i = 0; i < answerToggles.Length; i++)
@@ -79,6 +88,9 @@ public class QuestionPoint : MonoBehaviour {
         else
         {
             Player.PlayerStats.LostPoints++;
+            Debug.Log("Index zlego:" + index);
+            wrongIndexes.Add(index);
+            Debug.Log("Ile zlych:" + wrongIndexes.Count);
         }
 
         PointsIndicator.SetPoints(Player.PlayerStats.WonPoints, Player.PlayerStats.GetAllPoints());
