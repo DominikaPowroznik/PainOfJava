@@ -2,6 +2,7 @@
 
 NTP Project
 
+v1.0 - edited QuestionMaster & QuestionPoint scripts, randomizing answers in questions, list of wrong answered questions (eg. for next level), all the enemies & all the questionpoints placed on the map
 v0.985 - fixed canvas position in question points (now attached to camera) and other minor fixes
 v0.98 - added PointsIndicator & Mark UI, fixed problem with invoking Start() multiple times (QuestionPoints don't inherit from QuestionMaster any more), now questions are truly random, I hope...
 v0.97 - edited Player class (fields for won and lost points), PlayerInfoUI with Points text and new script PlayerCounter, fixed nasty problem with double invoking Check() func when button clicked
