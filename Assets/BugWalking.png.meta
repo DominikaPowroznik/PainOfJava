@@ -1,0 +1,463 @@
+fileFormatVersion: 2
+guid: 5d1631e58cdc25444b37e76f7229709d
+timeCreated: 1463499872
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BugWalking_0
+    21300002: BugWalking_1
+    21300004: BugWalking_2
+    21300006: BugWalking_3
+    21300008: BugWalking_4
+    21300010: BugWalking_5
+    21300012: BugWalking_6
+    21300014: BugWalking_7
+    21300016: BugWalking_8
+    21300018: BugWalking_9
+    21300020: BugWalking_10
+    21300022: BugWalking_11
+    21300024: BugWalking_12
+    21300026: BugWalking_13
+    21300028: BugWalking_14
+    21300030: BugWalking_15
+    21300032: BugWalking_16
+    21300034: BugWalking_17
+    21300036: BugWalking_18
+    21300038: BugWalking_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 65
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BugWalking_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 93
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: 21.5}
+        - {x: -46.5, y: 6.5}
+        - {x: -46.5, y: -11.5}
+        - {x: -38.5, y: -21.5}
+        - {x: 36.5, y: -21.5}
+        - {x: 46.5, y: -15.5}
+        - {x: 46.5, y: 12.5}
+        - {x: 37.5, y: 21.5}
+    - name: BugWalking_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 46
+        width: 92
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 21.5}
+        - {x: -46, y: 17.5}
+        - {x: -46, y: -21.5}
+        - {x: 31, y: -21.5}
+        - {x: 46, y: -5.5}
+        - {x: 46, y: 12.5}
+        - {x: 35, y: 21.5}
+    - name: BugWalking_2
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 46
+        width: 92
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: 21.5}
+        - {x: -46, y: 11.5}
+        - {x: -46, y: -18.5}
+        - {x: -38, y: -21.5}
+        - {x: 37, y: -21.5}
+        - {x: 46, y: -17.5}
+        - {x: 46, y: 19.5}
+        - {x: 38, y: 21.5}
+    - name: BugWalking_3
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 46
+        width: 92
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 21.5}
+        - {x: -46, y: 19.5}
+        - {x: -46, y: -21.5}
+        - {x: 41, y: -21.5}
+        - {x: 46, y: -9.5}
+        - {x: 46, y: 20.5}
+        - {x: 45, y: 21.5}
+    - name: BugWalking_4
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 45
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.5, y: 22}
+        - {x: -46.5, y: 8}
+        - {x: -46.5, y: -22}
+        - {x: 45.5, y: -22}
+        - {x: 46.5, y: -21}
+        - {x: 46.5, y: 14}
+        - {x: 43.5, y: 22}
+    - name: BugWalking_5
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 46
+        width: 93
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32.5, y: 21.5}
+        - {x: -38.5, y: 20.5}
+        - {x: -46.5, y: 8.5}
+        - {x: -46.5, y: -21.5}
+        - {x: 40.5, y: -21.5}
+        - {x: 46.5, y: -20.5}
+        - {x: 46.5, y: 13.5}
+        - {x: 32.5, y: 21.5}
+    - name: BugWalking_6
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 46
+        width: 92
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: 21.5}
+        - {x: -46, y: 8.5}
+        - {x: -46, y: -16.5}
+        - {x: -35, y: -21.5}
+        - {x: 31, y: -21.5}
+        - {x: 46, y: -8.5}
+        - {x: 46, y: 14.5}
+        - {x: 33, y: 21.5}
+    - name: BugWalking_7
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 46
+        width: 92
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: 21.5}
+        - {x: -27, y: 21.5}
+        - {x: -35, y: 16.5}
+        - {x: -45, y: 7.5}
+        - {x: -46, y: 4.5}
+        - {x: -46, y: -13.5}
+        - {x: -34, y: -21.5}
+        - {x: 28, y: -21.5}
+        - {x: 46, y: -7.5}
+        - {x: 46, y: 12.5}
+        - {x: 40, y: 20.5}
+    - name: BugWalking_8
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 46
+        width: 92
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 44, y: 21.5}
+        - {x: -45, y: 21.5}
+        - {x: -46, y: 18.5}
+        - {x: -46, y: -21.5}
+        - {x: 33, y: -21.5}
+        - {x: 46, y: -14.5}
+        - {x: 46, y: 19.5}
+    - name: BugWalking_9
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 46
+        width: 93
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 21.5}
+        - {x: -46.5, y: 11.5}
+        - {x: -46.5, y: -13.5}
+        - {x: -42.5, y: -21.5}
+        - {x: 46.5, y: -21.5}
+        - {x: 46.5, y: 19.5}
+        - {x: 40.5, y: 21.5}
+    - name: BugWalking_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 22}
+        - {x: -46.5, y: 8}
+        - {x: -46.5, y: -14}
+        - {x: -40.5, y: -22}
+        - {x: 30.5, y: -22}
+        - {x: 46.5, y: -13}
+        - {x: 46.5, y: 19}
+        - {x: 31.5, y: 22}
+    - name: BugWalking_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31.5, y: 22}
+        - {x: -30.5, y: 22}
+        - {x: -41.5, y: 11}
+        - {x: -46.5, y: -1}
+        - {x: -46.5, y: -12}
+        - {x: -34.5, y: -22}
+        - {x: 28.5, y: -22}
+        - {x: 46.5, y: -12}
+        - {x: 46.5, y: 15}
+    - name: BugWalking_12
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 92
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: -18.5}
+        - {x: 1, y: -22.5}
+        - {x: 32, y: -22.5}
+        - {x: 46, y: -9.5}
+        - {x: 46, y: 22.5}
+        - {x: -46, y: 22.5}
+        - {x: -46, y: -16.5}
+        - {x: -30, y: -22.5}
+        - {x: -22, y: -22.5}
+        - {x: -22, y: -21.5}
+        - {x: -18, y: -22.5}
+        - {x: -7, y: -22.5}
+    - name: BugWalking_13
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1
+        width: 92
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46, y: 22}
+        - {x: -46, y: -11}
+        - {x: -41, y: -22}
+        - {x: 33, y: -22}
+        - {x: 44, y: -15}
+        - {x: 46, y: -9}
+        - {x: 46, y: 22}
+    - name: BugWalking_14
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 1
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 22}
+        - {x: -35.5, y: 21}
+        - {x: -46.5, y: 8}
+        - {x: -46.5, y: -12}
+        - {x: -38.5, y: -22}
+        - {x: 31.5, y: -22}
+        - {x: 46.5, y: -18}
+        - {x: 46.5, y: 15}
+        - {x: 30.5, y: 22}
+    - name: BugWalking_15
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 1
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 22}
+        - {x: -46.5, y: 8}
+        - {x: -46.5, y: -13}
+        - {x: -42.5, y: -19}
+        - {x: -36.5, y: -22}
+        - {x: 35.5, y: -22}
+        - {x: 46.5, y: -19}
+        - {x: 46.5, y: 12}
+        - {x: 32.5, y: 22}
+    - name: BugWalking_16
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 2
+        width: 92
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33, y: -21.5}
+        - {x: 46, y: -11.5}
+        - {x: 46, y: 19.5}
+        - {x: 31, y: 21.5}
+        - {x: -29, y: 21.5}
+        - {x: -45, y: 13.5}
+        - {x: -46, y: 7.5}
+        - {x: -46, y: -14.5}
+        - {x: -33, y: -21.5}
+    - name: BugWalking_17
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1
+        width: 92
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46, y: -11}
+        - {x: 46, y: 12}
+        - {x: 34, y: 22}
+        - {x: -43, y: 22}
+        - {x: -46, y: 13}
+        - {x: -46, y: -17}
+        - {x: -34, y: -22}
+        - {x: 31, y: -22}
+    - name: BugWalking_18
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 1
+        width: 92
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: 22}
+        - {x: -32, y: 22}
+        - {x: -46, y: 7}
+        - {x: -46, y: -12}
+        - {x: -38, y: -22}
+        - {x: 32, y: -22}
+        - {x: 46, y: -9}
+        - {x: 46, y: 13}
+        - {x: 45, y: 19}
+    - name: BugWalking_19
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 22}
+        - {x: -46.5, y: 12}
+        - {x: -46.5, y: -17}
+        - {x: -43.5, y: -22}
+        - {x: 33.5, y: -22}
+        - {x: 46.5, y: -6}
+        - {x: 46.5, y: 12}
+        - {x: 31.5, y: 22}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
