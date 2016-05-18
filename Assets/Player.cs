@@ -78,16 +78,19 @@ public class Player : MonoBehaviour {
         {
             GameMaster.KillPlayer(this);
         }
+
+        statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         Enemy enemy = collision.collider.GetComponent<Enemy>();
-        if(enemy != null)
+        if (enemy != null)
         {
-            DamagePlayer(enemy.enemyStats.damage);
+            if(transform.position.y > enemy.transform.FindChild("CeilingCheck").transform.position.y)
+            {
+                enemy.DamageEnemy(playerStats.damage);
+            }
         }
-
-        statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
     }
 }

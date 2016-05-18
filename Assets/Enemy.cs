@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
             set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
         }
 
-        public int damage = 5;
+        public int damage = 20;
 
         public void Init()
         {
@@ -63,12 +63,19 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         Player player = collision.collider.GetComponent<Player>();
         if (player != null)
         {
-            DamageEnemy(player.playerStats.damage);
+            if(player.transform.position.x > (transform.position.x + GetComponent<BoxCollider2D>().size.x/2) && !GetComponent<SpriteRenderer>().flipX)
+            {
+                player.DamagePlayer(enemyStats.damage);
+            }
+            else if(player.transform.position.x < (transform.position.x - GetComponent<BoxCollider2D>().size.x / 2) && GetComponent<SpriteRenderer>().flipX)
+            {
+                player.DamagePlayer(enemyStats.damage);
+            }
         }
     }
 }

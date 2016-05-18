@@ -17,6 +17,7 @@ public class GameMaster : MonoBehaviour {
             gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>(); ;
         }
     }
+
     public IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds(spawnDelay);

@@ -72,7 +72,7 @@ namespace UnityStandardAssets._2D
             else if(!playerFalling)
             {
                 playerFalling = true;
-                yRestriction = target.transform.position.y - 2;
+                yRestriction = target.transform.position.y - 2.5f;
             }
             newPos = new Vector3(newPos.x, Mathf.Clamp(newPos.y, yRestriction, Mathf.Infinity), newPos.z);
 
