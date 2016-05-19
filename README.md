@@ -2,6 +2,7 @@
 
 NTP Project
 
+v1.3 - added self-made sprite of the question point (exam paper) & animation, new camera background and new environment sprites (http://fantasticpixcool.com/electrical+circuits+wallpaper)
 v1.2 - enemy damages player only if he's facing him, player damages enemy only if he jumped on him
 v1.1 - added self-made sprites of the enemy (bug) and animations; edited script EnemyWalking to use animations
 v1.05 - added self-made sprites of the player (it's still temporary I think) and animations
