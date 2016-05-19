@@ -2,6 +2,7 @@
 
 NTP Project
 
+v1.2 - enemy damages player only if he's facing him, player damages enemy only if he jumped on him
 v1.1 - added self-made sprites of the enemy (bug) and animations; edited script EnemyWalking to use animations
 v1.05 - added self-made sprites of the player (it's still temporary I think) and animations
 v1.0 - edited QuestionMaster & QuestionPoint scripts, randomizing answers in questions, list of wrong answered questions (eg. for next level), all the enemies & all the questionpoints placed on the map
