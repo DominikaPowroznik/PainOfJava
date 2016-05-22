@@ -10,6 +10,12 @@ public class GameMaster : MonoBehaviour {
     public Transform spawnPoint;
     public float spawnDelay = 2f;
 
+    private static int remainingLives = 3;
+    public static int RemainingLives
+    {
+        get { return remainingLives;  }
+    }
+
     void Start()
     {
         if(gm == null)
@@ -18,16 +24,35 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
+    public void EndGame()
+    {
+        Debug.Log("end");
+    }
+
     public IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds(spawnDelay);
-        Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        if(GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        }   
     }
 
 	public static void KillPlayer(Player player)
     {
         Destroy(player.gameObject);
-        gm.StartCoroutine(gm.RespawnPlayer());
+
+        GameObject.Find("LivesHeart " + remainingLives).SetActive(false);
+        remainingLives--;
+
+        if(remainingLives <= 0)
+        {
+            gm.EndGame();
+        }
+        else
+        {
+            gm.StartCoroutine(gm.RespawnPlayer());
+        }
     }
 
     public static void KillEnemy(Enemy enemy)

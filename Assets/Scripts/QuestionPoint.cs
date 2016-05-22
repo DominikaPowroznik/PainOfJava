@@ -88,9 +88,9 @@ public class QuestionPoint : MonoBehaviour {
         else
         {
             Player.PlayerStats.LostPoints++;
-            Debug.Log("Index zlego:" + index);
+            //Debug.Log("Index zlego:" + index);
             wrongIndexes.Add(index);
-            Debug.Log("Ile zlych:" + wrongIndexes.Count);
+            //Debug.Log("Ile zlych:" + wrongIndexes.Count);
         }
 
         PointsIndicator.SetPoints(Player.PlayerStats.WonPoints, Player.PlayerStats.GetAllPoints());

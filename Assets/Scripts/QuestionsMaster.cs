@@ -89,13 +89,13 @@ public class QuestionsMaster : MonoBehaviour {
             }
         }
 
-        Debug.Log(array.Length);
-        for (int i = 0; i < array.Length; i++)
-        {
-            Debug.Log("[" + i + "]->" + array[i].question);
-            Debug.Log("a)" + array[i].answers[0].content);
-            Debug.Log("b)" + array[i].answers[1].content);
-        }
+        //Debug.Log(array.Length);
+        //for (int i = 0; i < array.Length; i++)
+        //{
+        //    Debug.Log("[" + i + "]->" + array[i].question);
+        //    Debug.Log("a)" + array[i].answers[0].content);
+        //    Debug.Log("b)" + array[i].answers[1].content);
+        //}
     }
 
 }
