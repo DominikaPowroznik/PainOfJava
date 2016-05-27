@@ -2,7 +2,8 @@
 
 NTP Project
 
-v4.44 - added lives hearts, switching them off in GM script
+v1.5 - added game over screen and new font of UI
+v1.44 - added lives hearts, switching them off in GM script
 v1.4 - new health bar rects, sweet cleanup in project folder
 v1.35 - added self-made player sprites & new animations (but jump wasn't working like it should - maybe TODO later)
 v1.3 - added self-made sprite of the question point (exam paper) & animation, new camera background and new environment sprites (http://fantasticpixcool.com/electrical+circuits+wallpaper)
