@@ -10,7 +10,10 @@ public class GameMaster : MonoBehaviour {
     public Transform spawnPoint;
     public float spawnDelay = 2f;
 
-    private static int remainingLives = 3;
+    [SerializeField]
+    private int maxLives = 3;
+
+    private static int remainingLives;
     public static int RemainingLives
     {
         get { return remainingLives;  }
@@ -19,7 +22,10 @@ public class GameMaster : MonoBehaviour {
     [SerializeField]
     private GameObject gameOverUI;
 
-    void Start()
+    [SerializeField]
+    private GameObject pauseUI;
+
+    void Awake()
     {
         if(gm == null)
         {
@@ -27,9 +33,24 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
+    void Start()
+    {
+        remainingLives = maxLives;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //pausing the game
+            Time.timeScale = 0.0f;
+
+            pauseUI.SetActive(true);
+        }
+    }
+
     public void EndGame()
     {
-        Debug.Log("END");
         gameOverUI.SetActive(true); 
     }
 
@@ -39,7 +60,7 @@ public class GameMaster : MonoBehaviour {
         if(GameObject.FindGameObjectWithTag("Player") == null)
         {
             Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
-        }   
+        }
     }
 
 	public static void KillPlayer(Player player)
