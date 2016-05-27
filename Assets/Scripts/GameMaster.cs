@@ -16,6 +16,9 @@ public class GameMaster : MonoBehaviour {
         get { return remainingLives;  }
     }
 
+    [SerializeField]
+    private GameObject gameOverUI;
+
     void Start()
     {
         if(gm == null)
@@ -26,7 +29,8 @@ public class GameMaster : MonoBehaviour {
 
     public void EndGame()
     {
-        Debug.Log("end");
+        Debug.Log("END");
+        gameOverUI.SetActive(true); 
     }
 
     public IEnumerator RespawnPlayer()
