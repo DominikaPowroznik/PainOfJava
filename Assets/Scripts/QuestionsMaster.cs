@@ -20,11 +20,13 @@ public class QuestionsMaster : MonoBehaviour {
     private string jsonString;
     private JsonData itemData;
 
+    public static int questionPointsCount = 3;
+
     public static int questionCount;
     public static Question[] questions;
 
     public static int wrongCount;
-    public static Question[] wrongAnswered;
+    public static Question[] questionsWithWrongAnswered;
 
     void Start()
     {
@@ -52,16 +54,24 @@ public class QuestionsMaster : MonoBehaviour {
         RandomizeQuestions(questions);
     }
 
-    public static void arrangeWrongAnswered(List<int> wrongIndexes)
+    public static void arrangeWithWrongAnswered(List<int> wrongIndexes)
     {
         wrongCount = wrongIndexes.Count;
-        wrongAnswered = new Question[wrongCount];
+        questionsWithWrongAnswered = new Question[wrongCount + (questionCount - questionPointsCount)];
+
         for (int i = 0; i < wrongCount; i++)
         {
             Debug.Log(questions[wrongIndexes[i]].question);
-            wrongAnswered[i] = questions[wrongIndexes[i]];
+            questionsWithWrongAnswered[i] = questions[wrongIndexes[i]];
         }
-        RandomizeQuestions(wrongAnswered);
+
+        for(int i = wrongCount; i < questionsWithWrongAnswered.Length; i++)
+        {
+            Debug.Log(questions[i].question);
+            questionsWithWrongAnswered[i] = questions[i];
+        }
+
+        RandomizeQuestions(questionsWithWrongAnswered);
     }
 
     static void RandomizeQuestions(Question[] array)

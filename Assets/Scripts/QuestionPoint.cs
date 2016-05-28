@@ -27,7 +27,7 @@ public class QuestionPoint : MonoBehaviour {
                 Debug.LogError("Out of questions from json file!");
 
                 //TODO: Place it somewhere else
-                QuestionsMaster.arrangeWrongAnswered(wrongIndexes);
+                QuestionsMaster.arrangeWithWrongAnswered(wrongIndexes);
                 wrongIndexes.Clear();
 
                 Destroy(this.gameObject);
