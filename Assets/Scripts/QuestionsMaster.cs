@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.IO;
 using LitJson;
 using System.Collections.Generic;
@@ -20,24 +19,24 @@ public class QuestionsMaster : MonoBehaviour {
     private string jsonString;
     private JsonData itemData;
 
-    public static int questionPointsCount = 3;
+    public static int questionPointsCount = 0;
 
-    public static int questionCount;
+    public static int questionsCount;
     public static Question[] questions;
 
-    public static int wrongCount;
+    public static int questionsWithWrongCount;
     public static Question[] questionsWithWrongAnswered;
 
-    void Start()
+    void Awake()
     {
         jsonString = File.ReadAllText(Application.dataPath + "/Questions.json");
         itemData = JsonMapper.ToObject(jsonString);
 
-        questionCount = itemData["questions"].Count;
+        questionsCount = itemData["questions"].Count;
 
-        questions = new Question[questionCount];
+        questions = new Question[questionsCount];
 
-        for (int i = 0; i < questionCount; i++)
+        for (int i = 0; i < questionsCount; i++)
         {
             JsonData q = itemData["questions"][i];
             questions[i].question = q["question"].ToString();
@@ -56,22 +55,31 @@ public class QuestionsMaster : MonoBehaviour {
 
     public static void arrangeWithWrongAnswered(List<int> wrongIndexes)
     {
-        wrongCount = wrongIndexes.Count;
-        questionsWithWrongAnswered = new Question[wrongCount + (questionCount - questionPointsCount)];
+        questionsWithWrongCount = wrongIndexes.Count + (questionsCount - questionPointsCount);
+        questionsWithWrongAnswered = new Question[questionsWithWrongCount];
 
-        for (int i = 0; i < wrongCount; i++)
+        for (int i = 0; i < wrongIndexes.Count; i++)
         {
             Debug.Log(questions[wrongIndexes[i]].question);
             questionsWithWrongAnswered[i] = questions[wrongIndexes[i]];
         }
 
-        for(int i = wrongCount; i < questionsWithWrongAnswered.Length; i++)
+        for(int i = wrongIndexes.Count; i < questionsWithWrongCount; i++)
         {
             Debug.Log(questions[i].question);
             questionsWithWrongAnswered[i] = questions[i];
         }
 
         RandomizeQuestions(questionsWithWrongAnswered);
+    }
+
+    public static void arrangeWrongAnswered(List<int> wrongIndexes)
+    {
+        for (int i = 0; i < wrongIndexes.Count; i++)
+        {
+            Debug.Log(questions[wrongIndexes[i]].question);
+            questionsWithWrongAnswered[i] = questions[wrongIndexes[i]];
+        }
     }
 
     static void RandomizeQuestions(Question[] array)
@@ -107,5 +115,4 @@ public class QuestionsMaster : MonoBehaviour {
         //    Debug.Log("b)" + array[i].answers[1].content);
         //}
     }
-
 }

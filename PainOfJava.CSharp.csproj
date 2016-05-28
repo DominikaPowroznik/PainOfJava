@@ -72,6 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ExamGameMaster.cs" />
+    <Compile Include="Assets\ExamQuestion.cs" />
     <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyWalking.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PointsCounter.cs" />
     <Compile Include="Assets\Scripts\PointsIndicator.cs" />
+    <Compile Include="Assets\Scripts\QuestionManager.cs" />
     <Compile Include="Assets\Scripts\QuestionPoint.cs" />
     <Compile Include="Assets\Scripts\QuestionsMaster.cs" />
     <Compile Include="Assets\Scripts\StatusIndicator.cs" />

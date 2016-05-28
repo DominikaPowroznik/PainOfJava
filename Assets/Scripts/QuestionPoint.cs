@@ -1,20 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System.Collections.Generic;
 
-public class QuestionPoint : MonoBehaviour {
-
-    public GameObject questionCanvas;
-
-    private Transform questionTransform;
-    private Toggle[] answerToggles = new Toggle[4];
-
-    private Button button;
-
-    private static int index = 0;
-
-    public static List<int> wrongIndexes = new List<int>();
+public class QuestionPoint : QuestionManager {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -22,7 +9,7 @@ public class QuestionPoint : MonoBehaviour {
 
         if (player != null)
         {
-            if (index >= QuestionsMaster.questionCount)
+            if (index >= QuestionsMaster.questionsCount)
             {
                 Debug.LogError("Out of questions from json file!");
 
@@ -38,50 +25,17 @@ public class QuestionPoint : MonoBehaviour {
             //pausing the game
             Time.timeScale = 0.0f;
 
-            questionTransform = questionCanvas.transform.Find("Question");
-            questionTransform.GetComponentInChildren<Text>().text = QuestionsMaster.questions[index].question;
-
-            for (int i = 0; i < answerToggles.Length; i++)
-            {
-                answerToggles[i] = questionCanvas.transform.Find("Answers").Find(i.ToString()).GetComponent<Toggle>();
-                answerToggles[i].GetComponentInChildren<Text>().text = QuestionsMaster.questions[index].answers[i].content;
-            }
+            FillWithData();
 
             questionCanvas.SetActive(true);
 
-            button = questionCanvas.transform.Find("Button").GetComponent<Button>();
-            button.onClick.AddListener(Check);
+            ChangeButton("Odpowiedz", CheckAnswers);
         }
     }
 
-    public void Check()
+    public void CheckAnswers()
     {
-        bool check = true;
-
-        for (int i = 0; i < answerToggles.Length; i++)
-        {
-            bool answer = QuestionsMaster.questions[index].answers[i].answer.ToLower().Equals("true");
-            
-            if (answer && answerToggles[i].isOn)
-            {
-                answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
-                answerToggles[i].GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
-            }
-            else if (answer && !answerToggles[i].isOn)
-            {
-                answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f);
-                check = false;
-            }
-            else if (!answer && answerToggles[i].isOn)
-            {
-                answerToggles[i].GetComponentInChildren<Text>().color = new Color(0.8f, 0.0f, 0.0f, 1.0f);
-                check = false;
-            }
-
-            answerToggles[i].interactable = false;
-        }
-
-        if (check)
+        if (IsCorrect())
         {
             Player.PlayerStats.WonPoints++;
         }
@@ -95,9 +49,7 @@ public class QuestionPoint : MonoBehaviour {
 
         PointsIndicator.SetPoints(Player.PlayerStats.WonPoints, Player.PlayerStats.GetAllPoints());
 
-        button.onClick.RemoveAllListeners();
-        button.GetComponentInChildren<Text>().text = "Graj dalej";
-        button.onClick.AddListener(GoBack);
+        ChangeButton("Graj dalej", GoBack);
     }
 
     public void GoBack()

@@ -13,6 +13,6 @@ public class PointsCounter : MonoBehaviour {
 	
 	void Update ()
     {
-        pointsText.text = Player.PlayerStats.WonPoints + " / " + QuestionsMaster.questionCount;
+        pointsText.text = Player.PlayerStats.WonPoints + " / " + QuestionsMaster.questionsCount;
     }
 }
