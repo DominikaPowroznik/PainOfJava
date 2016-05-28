@@ -14,7 +14,7 @@ public class Mark : MonoBehaviour {
 
     void Update()
     {
-        float quotient = (float)Player.PlayerStats.WonPoints/(float)QuestionsMaster.questionsCount;
+        float quotient = (float)Player.PlayerStats.WonPoints/(float)QuestionsMaster.questions.Count;
         
         if (quotient > 0.9)
         {

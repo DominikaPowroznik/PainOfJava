@@ -22,12 +22,12 @@ public class QuestionManager : MonoBehaviour
 
     protected void FillWithData()
     {
-        questionTransform.GetComponentInChildren<Text>().text = QuestionsMaster.questions[index].question;
+        questionTransform.GetComponentInChildren<Text>().text = QuestionsMaster.questionsToBeDisplay[index].question;
 
         for (int i = 0; i < answerToggles.Length; i++)
         {
             answerToggles[i] = questionCanvas.transform.Find("Answers").Find(i.ToString()).GetComponent<Toggle>();
-            answerToggles[i].GetComponentInChildren<Text>().text = QuestionsMaster.questions[index].answers[i].content;
+            answerToggles[i].GetComponentInChildren<Text>().text = QuestionsMaster.questionsToBeDisplay[index].answers[i].content;
         }
     }
 
@@ -37,7 +37,7 @@ public class QuestionManager : MonoBehaviour
 
         for (int i = 0; i < answerToggles.Length; i++)
         {
-            bool answer = QuestionsMaster.questions[index].answers[i].answer.ToLower().Equals("true");
+            bool answer = QuestionsMaster.questionsToBeDisplay[index].answers[i].answer.ToLower().Equals("true");
 
             if (answer && answerToggles[i].isOn)
             {

@@ -21,94 +21,97 @@ public class QuestionsMaster : MonoBehaviour {
 
     public static int questionPointsCount = 0;
 
-    public static int questionsCount;
-    public static Question[] questions;
-
-    public static int questionsWithWrongCount;
-    public static Question[] questionsWithWrongAnswered;
+    public static List<Question> questions = new List<Question>();
+    public static List<Question> questionsWithWrongAnswered = new List<Question>();
+    public static List<Question> questionsToBeDisplay = new List<Question>();
 
     void Awake()
     {
         jsonString = File.ReadAllText(Application.dataPath + "/Questions.json");
         itemData = JsonMapper.ToObject(jsonString);
 
-        questionsCount = itemData["questions"].Count;
-
-        questions = new Question[questionsCount];
+        int questionsCount = itemData["questions"].Count;
 
         for (int i = 0; i < questionsCount; i++)
         {
-            JsonData q = itemData["questions"][i];
-            questions[i].question = q["question"].ToString();
+            JsonData jsonItem = itemData["questions"][i];
+            Question q = new Question();
+            q.question = jsonItem["question"].ToString();
+            q.answers = new Question.Answers[4];
 
-            questions[i].answers = new Question.Answers[4];
-
-            for (int j = 0; j < questions[i].answers.Length; j++)
+            for (int j = 0; j < q.answers.Length; j++)
             {
-                questions[i].answers[j].content = q["answers"][j]["content"].ToString();
-                questions[i].answers[j].answer = q["answers"][j]["answer"].ToString();
+                q.answers[j].content = jsonItem["answers"][j]["content"].ToString();
+                q.answers[j].answer = jsonItem["answers"][j]["answer"].ToString();
             }
+            questions.Add(q);
         }
-        
-        RandomizeQuestions(questions);
+
+        questionsToBeDisplay = questions;
+        RandomizeQuestions(questionsToBeDisplay);
     }
 
     public static void arrangeWithWrongAnswered(List<int> wrongIndexes)
     {
-        questionsWithWrongCount = wrongIndexes.Count + (questionsCount - questionPointsCount);
-        questionsWithWrongAnswered = new Question[questionsWithWrongCount];
+        questionsWithWrongAnswered.Clear();
+        int questionsWithWrongCount = wrongIndexes.Count + (questions.Count - questionPointsCount);
 
         for (int i = 0; i < wrongIndexes.Count; i++)
         {
             Debug.Log(questions[wrongIndexes[i]].question);
-            questionsWithWrongAnswered[i] = questions[wrongIndexes[i]];
+            questionsWithWrongAnswered.Add(questions[wrongIndexes[i]]);
         }
 
         for(int i = wrongIndexes.Count; i < questionsWithWrongCount; i++)
         {
             Debug.Log(questions[i].question);
-            questionsWithWrongAnswered[i] = questions[i];
+            questionsWithWrongAnswered.Add(questions[i]);
         }
 
-        RandomizeQuestions(questionsWithWrongAnswered);
+        questionsToBeDisplay = questionsWithWrongAnswered;
+        //RandomizeQuestions(questionsToBeDisplay);
     }
 
     public static void arrangeWrongAnswered(List<int> wrongIndexes)
     {
+        questionsWithWrongAnswered.Clear();
         for (int i = 0; i < wrongIndexes.Count; i++)
         {
             Debug.Log(questions[wrongIndexes[i]].question);
-            questionsWithWrongAnswered[i] = questions[wrongIndexes[i]];
+            questionsWithWrongAnswered.Add(questions[wrongIndexes[i]]);
         }
+
+        questionsToBeDisplay = questionsWithWrongAnswered;
+        //RandomizeQuestions(questionsToBeDisplay);
     }
 
-    static void RandomizeQuestions(Question[] array)
+    static void RandomizeQuestions(List<Question> list)
     {
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
 
         //randomize questions in array
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < list.Count; i++)
         {
-            Question tmp = array[i];
-            int random = Random.Range(i, array.Length);
-            array[i] = array[random];
-            array[random] = tmp;
+            Question tmp = list[i];
+            int random = Random.Range(i, list.Count);
+            list[i] = list[random];
+            list[random] = tmp;
         }
 
         //randomize answers in each question
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < list.Count; i++)
         {
-            for (int j = 0; j < array[i].answers.Length; j++)
+            for (int j = 0; j < list[i].answers.Length; j++)
             {
-                Question.Answers tmp = array[i].answers[j];
-                int random = Random.Range(i, array[i].answers.Length);
-                array[i].answers[j] = array[i].answers[random];
-                array[i].answers[random] = tmp;
+                Question.Answers tmp = list[i].answers[j];
+                int random = Random.Range(i, list[i].answers.Length);
+                list[i].answers[j] = list[i].answers[random];
+                list[i].answers[random] = tmp;
             }
         }
 
-        //Debug.Log(array.Length);
-        //for (int i = 0; i < array.Length; i++)
+        //Debug.Log(list.Count);
+        //for (int i = 0; i < list.Count; i++)
         //{
         //    Debug.Log("[" + i + "]->" + array[i].question);
         //    Debug.Log("a)" + array[i].answers[0].content);

@@ -9,9 +9,9 @@ public class QuestionPoint : QuestionManager {
 
         if (player != null)
         {
-            if (index >= QuestionsMaster.questionsCount)
+            if (index >= QuestionsMaster.questionsToBeDisplay.Count)
             {
-                Debug.LogError("Out of questions from json file!");
+                Debug.LogError("Out of questions!");
 
                 //TODO: Place it somewhere else
                 QuestionsMaster.arrangeWithWrongAnswered(wrongIndexes);
