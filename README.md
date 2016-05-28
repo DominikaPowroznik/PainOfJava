@@ -2,6 +2,7 @@
 
 NTP Project
 
+v1.7 - at last! it was really nasty, but displaying questions with wrong answered one is working (I hope)
 v1.66 - loading questions, code refractor... but reloading for new round (wrong questions) is not working, will try to change everything from tables to lists
 v1.6 - new level & design for it, edited QuestionMaster script
 v1.55 - added main menu & pause menu screens
