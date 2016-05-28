@@ -2,6 +2,7 @@
 
 NTP Project
 
+v1.66 - loading questions, code refractor... but reloading for new round (wrong questions) is not working, will try to change everything from tables to lists
 v1.6 - new level & design for it, edited QuestionMaster script
 v1.55 - added main menu & pause menu screens
 v1.5 - added game over screen and new font of UI, fixed lives error when retrying the game
