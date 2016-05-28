@@ -2,7 +2,8 @@
 
 NTP Project
 
-v1.5 - added game over screen and new font of UI
+v1.55 - added main menu & pause menu screens
+v1.5 - added game over screen and new font of UI, fixed lives error when retrying the game
 v1.44 - added lives hearts, switching them off in GM script
 v1.4 - new health bar rects, sweet cleanup in project folder
 v1.35 - added self-made player sprites & new animations (but jump wasn't working like it should - maybe TODO later)
