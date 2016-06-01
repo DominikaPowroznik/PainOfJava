@@ -48,7 +48,7 @@ public class QuestionsMaster : MonoBehaviour {
         }
 
         questionsToBeDisplay = questions;
-        RandomizeQuestions(questionsToBeDisplay);
+        //RandomizeQuestions(questionsToBeDisplay);
     }
 
     public static void arrangeWithWrongAnswered(List<int> wrongIndexes)

@@ -25,10 +25,10 @@ public class QuestionPoint : QuestionManager {
             //pausing the game
             Time.timeScale = 0.0f;
 
+            QuestionsMaster.questionPointsCount++;
+
             FillWithData();
-
             questionCanvas.SetActive(true);
-
             ChangeButton("Odpowiedz", CheckAnswers);
         }
     }

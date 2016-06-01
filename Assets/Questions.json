@@ -1,70 +1,780 @@
 {
-  "questions":
-  [
+  "questions": [
     {
-      "question": "Do jakiej grupy zwierząt należą dziobaki?",
-      "answers":
-	  [
-      {
-        "content": "ptaków",
-        "answer": false
-      },
-      {
-        "content": "ssaków",
-        "answer": true
-      },
-      {
-        "content": "płazów",
-        "answer": false
-      },
-      {
-        "content": "gadów",
-        "answer": false
-      }
+      "question": "Która składnia dodawania obiektu panelu (JPanel panel = new JPanel();) do kontenera okna (JFrame frame = new JFrame();) jest poprawna?",
+      "answers": [
+        {
+          "content": "frame.add(panel);",
+          "answer": true
+        },
+        {
+          "content": "panel.add(frame);",
+          "answer": false
+        },
+        {
+          "content": "frame.addActionListener(panel);",
+          "answer": false
+        },
+        {
+          "content": "panel.addActionListener(frame);",
+          "answer": false
+        }
       ]
     },
     {
-      "question": "Gdzie to jest?",
-      "answers":
-	  [
-      {
-        "content": "W kiblu",
-        "answer": false
-      },
-      {
-        "content": "W kuchni",
-        "answer": true
-      },
-	  {
-        "content": "Na dachu",
-        "answer": false
-      },
-      {
-        "content": "W żłobie",
-        "answer": true
-      }
+      "question": "W aplecie języka Java klasa główna implementuje interfejs obsługi zdarzeń ActionListener. Dodanie słuchacza zdarzeń do obiektu przycisku button realizuje kod:",
+      "answers": [
+        {
+          "content": "button.addActionListener(button);",
+          "answer": false
+        },
+        {
+          "content": "button.addActionListener(this);",
+          "answer": true
+        },
+        {
+          "content": "this.addActionListener(button);",
+          "answer": false
+        },
+        {
+          "content": "this.addActionListener(this);",
+          "answer": false
+        }
       ]
     },
     {
-      "question": "Jaka grupa krwi jest uniwersalnym dawcą?",
-      "answers":
-	  [
-      {
-        "content": "0",
-        "answer": true
-      },
-      {
-        "content": "A",
-        "answer": false
-      },
-	  {
-        "content": "B",
-        "answer": false
-      },
-      {
-        "content": "AB",
-        "answer": false
-      }
+      "question": "W metodzie init() klasy głównej apletu implementującego interfejs mouseListener znajduje się kod dodania słuchacza zdarzeń od myszki do źródła: addMouseListener(this);. Które stwierdzenia są prawdziwe?",
+      "answers": [
+        {
+          "content": "źródłem zdarzeń jest aplet",
+          "answer": true
+        },
+        {
+          "content": "źródło zdarzeń nie jest określone i kompilator zgłosi błąd",
+          "answer": false
+        },
+        {
+          "content": "słuchaczem zdarzeń jest aplet",
+          "answer": true
+        },
+        {
+          "content": "słuchacz zdarzeń nie jest określony",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "W Java API javax.swing.tree to:",
+      "answers": [
+        {
+          "content": "interfejs",
+          "answer": false
+        },
+        {
+          "content": "pakiet",
+          "answer": false
+        },
+        {
+          "content": "klasa",
+          "answer": true
+        },
+        {
+          "content": "wyjątek",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Realizację tzw. dymku podpowiedzi po najechaniu myszką na obiekt przycisku o nazwie button umożliwia kod:",
+      "answers": [
+        {
+          "content": "button.setText(''treść dymku'');",
+          "answer": false
+        },
+        {
+          "content": "button.getToolTipText(''treść dymku'');",
+          "answer": false
+        },
+        {
+          "content": "button.setToolTipText(''treść dymku'');",
+          "answer": true
+        },
+        {
+          "content": "button.getText(''treść dymku'');",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Metoda setOpaque(true) z klasy javax.swing.JComponent wywołana na rzecz obiektu komponentu biblioteki Swing powoduje, że komponent ten jest:",
+      "answers": [
+        {
+          "content": "widoczny",
+          "answer": false
+        },
+        {
+          "content": "niewidoczny",
+          "answer": false
+        },
+        {
+          "content": "przezroczysty",
+          "answer": false
+        },
+        {
+          "content": "nieprzezroczysty",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "Które stwierdzenia dotyczące mechanizmu SAX obsługiwanego z poziomu języka Java są prawdziwe?",
+      "answers": [
+        {
+          "content": "SAX to klasa z biblioteki java.awt do rozkładu komponentów w kontenerach",
+          "answer": false
+        },
+        {
+          "content": "SAX to prosty interfejs programowania aplikacji dla obsługi XML-a",
+          "answer": true
+        },
+        {
+          "content": "SAX odczytuje dokumenty XML sekwencyjnie od początku do końca i podczas tego procesu wywołuje metody tzw. wywołań zwrotnych",
+          "answer": true
+        },
+        {
+          "content": "SAX nie jest obsługiwany w języku Java",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Za pomocą obiektu jakiej klasy powinien odbywać się dostęp do pliku file_name.xml z apletu języka Java?",
+      "answers": [
+        {
+          "content": "File file = new File(''file_name.xml'');",
+          "answer": true
+        },
+        {
+          "content": "InputStream is = new InputStream(''file_name.xml'');",
+          "answer": true
+        },
+        {
+          "content": "URL url = new URL(getCodeBase(), ''file_name.xml'');",
+          "answer": true
+        },
+        {
+          "content": "Aplet uruchamia się po stronie klienta i nie może czytać danych z pliku XML.",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "W klasie serwletów javax.servlet.http.HttpServlet za obsługę żądań typu GET odpowiada:",
+      "answers": [
+        {
+          "content": "processRequest();",
+          "answer": false
+        },
+        {
+          "content": "doGet();",
+          "answer": true
+        },
+        {
+          "content": "doPost();",
+          "answer": false
+        },
+        {
+          "content": "Język Java nie obsługuje żądań typu GET.",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Rejestracja sterownika JDBC dla bazy danych MySQL jest realizowana za pomocą kodu:",
+      "answers": [
+        {
+          "content": "Connection connection = DriverManager.getConnection(url, user, password);",
+          "answer": true
+        },
+        {
+          "content": "Class.forName(''com.mysql.jdbc.Driver'');",
+          "answer": true
+        },
+        {
+          "content": "Statement statement = connection.createStatement();",
+          "answer": true
+        },
+        {
+          "content": "ResultSet resultSet = Statement.execute.Query(query);",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "Obsługa bazy danych z apletu ze względu bezpieczeństwa powinna być realizowana:",
+      "answers": [
+        {
+          "content": "bezpośrednio z apletu za pomocą JDBC",
+          "answer": false
+        },
+        {
+          "content": "z apletu przez serwlet zainstalowany w kontenerze Web na serwerze",
+          "answer": true
+        },
+        {
+          "content": "z apletu przez inny aplet",
+          "answer": false
+        },
+        {
+          "content": "nie jest możliwa obsługa bazy danych z apletu",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Parser strumieniowy StAX pozwala na:",
+      "answers": [
+        {
+          "content": "odczyt i zapis dokumentów XML",
+          "answer": true
+        },
+        {
+          "content": "tylko odczyt dokumentów XML",
+          "answer": false
+        },
+        {
+          "content": "tylko zapis dokumentów XML",
+          "answer": false
+        },
+        {
+          "content": "StAX nie jest obsługiwany w języku Java",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Wyłączenie walidacji dokumentu XML z DTD z poziomu kodu Java w XML DOM jest możliwe po użyciu składni:",
+      "answers": [
+        {
+          "content": "factory.setValidating(true);",
+          "answer": false
+        },
+        {
+          "content": "factory.setValidating(false);",
+          "answer": true
+        },
+        {
+          "content": "validator.validate(source);",
+          "answer": false
+        },
+        {
+          "content": "validator.validate(source, result);",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Metoda marshall w technologii JAXB pozwala na:",
+      "answers": [
+        {
+          "content": "tworzenie pliku XML z obiektu Java",
+          "answer": true
+        },
+        {
+          "content": "tworzenie obiektu Java z danych źródłowych XML",
+          "answer": true
+        },
+        {
+          "content": "tworzenie schematu XML Schema z obiektu Java",
+          "answer": false
+        },
+        {
+          "content": "Metoda marshall nie występuje w technologii JAXB",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Kompilator xjc służy do:",
+      "answers": [
+        {
+          "content": "kompilacji plików klasowych na podstawie schematu XML Schema",
+          "answer": true
+        },
+        {
+          "content": "walidacji dokumentu XML ze schematem XML Schema",
+          "answer": true
+        },
+        {
+          "content": "automatycznego generowania plików klasowych Java na podstawie schematu XML Schema",
+          "answer": true
+        },
+        {
+          "content": "automatycznego generowania schematu XML Schema na podstawie kodu Java",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "Która deklaracja zmiennych jest poprawna?",
+      "answers": [
+        {
+          "content": "int #abc;",
+          "answer": false
+        },
+        {
+          "content": "int %abc;",
+          "answer": false
+        },
+        {
+          "content": "int $abc;",
+          "answer": true
+        },
+        {
+          "content": "int _123;",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "Dany jest kod:  package pl.edu.prz.jprokop; public class PackageTest { System.out.println(''My package test''); }. Składnia którego polecenia pozwala po skompilowaniu na uruchomienie tego kodu?",
+      "answers": [
+        {
+          "content": "java pl.edu.prz.jprokop.PackageTest",
+          "answer": true
+        },
+        {
+          "content": "java PackageTest/jprokop/prz/edu/pl",
+          "answer": false
+        },
+        {
+          "content": "java pl/edu/prz/jprokop/PackageTest",
+          "answer": true
+        },
+        {
+          "content": "java PackageTest.jprokop.prz.edu.pl",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Dany jest kod klasy o nazwie A: class A { int a = 1; public static void main(String []args) { System.out.println(''a= '' = a); } }. Kompilacja i wywołanie powyższego kodu spowoduje:",
+      "answers": [
+        {
+          "content": "output: a = 1;",
+          "answer": false
+        },
+        {
+          "content": "Runtime Exception",
+          "answer": false
+        },
+        {
+          "content": "Compilation Error",
+          "answer": true
+        },
+        {
+          "content": "Runtime Error",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Zapis w kodzie źródłowym w postaci X extends Y jest prawdziwy:",
+      "answers": [
+        {
+          "content": "tylko wtedy, jeśli X jest klasą, a Y jest interfejsem",
+          "answer": false
+        },
+        {
+          "content": "tylko wtedy, jeśli X jest interfejsem, a Y jest klasą",
+          "answer": false
+        },
+        {
+          "content": "jeśli X i Y są jednocześnie klasami lub interfejsami",
+          "answer": true
+        },
+        {
+          "content": "dla wszystkich kombinacji, których X i Y są klasami i/lub interfejsami",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "W wyniku kompilacji kodu źródłowego otrzymano m.in. pliki Class$1.class, Class$2.class. Dlaczego w nazwach plików klasowych po znaku dolara są liczby 1 i 2?",
+      "answers": [
+        {
+          "content": "ponieważ klasa zawierała dwie klasy wewnętrzne o nazwach 1 i 2",
+          "answer": false
+        },
+        {
+          "content": "ponieważ klasa zawierała dwie anonimowe klasy wewnętrzne",
+          "answer": true
+        },
+        {
+          "content": "ponieważ klasa zawierała dwie nazwane klasy abstrakcyjne",
+          "answer": false
+        },
+        {
+          "content": "ponieważ klasa zawierała dwie nazwane klasy adaptacyjne",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która skłania klasy sparametryzowanej o nazwie MyClass jest poprawna?",
+      "answers": [
+        {
+          "content": "MyClass<int> obj = new MyClass<int>(123);",
+          "answer": false
+        },
+        {
+          "content": "MyClass<integer> obj = new MyClass<integer>(123);",
+          "answer": true
+        },
+        {
+          "content": "MyClass<String, integer> obj = new MyClass<String, integer>(''Java'', 12);",
+          "answer": true
+        },
+        {
+          "content": "Język Java nie obsługuje klas sparametryzowanych.",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Dany jest kod: interface myInterface { boolean myFunction(); }. Który poniższy fragment kodu da się z nim skompilować?",
+      "answers": [
+        {
+          "content": "interface myInterface2 implements myInterface {  }",
+          "answer": false
+        },
+        {
+          "content": "abstract class MyClass1 implements myInterface {  }",
+          "answer": true
+        },
+        {
+          "content": "class MyClass2 implements myInterface { boolean myFunction() { return false; } }",
+          "answer": false
+        },
+        {
+          "content": "abstract class MyClass2 extends myInterface { public boolean myFunction() { return true; } }",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która składnia implementacji dwóch interfejsów jest poprawna?",
+      "answers": [
+        {
+          "content": "public class MyClass implements MouseListener extends ActionListener {  }",
+          "answer": false
+        },
+        {
+          "content": "public class MyClass implements MyListener, ActionListener {  }",
+          "answer": true
+        },
+        {
+          "content": "public class MyClass extends MouseListener, ActionListener {  }",
+          "answer": false
+        },
+        {
+          "content": "public class MyClass extends MouseListener implements ActionListener {  }",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która składnia tworzenia obiektu klasy wewnętrznej B jest poprawna?",
+      "answers": [
+        {
+          "content": "A.B b = (new A()).new B();",
+          "answer": true
+        },
+        {
+          "content": "A a = new A(), A.B b = a.new B(); ",
+          "answer": true
+        },
+        {
+          "content": "B b = new B();",
+          "answer": false
+        },
+        {
+          "content": "A.B b = new A.B();",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Utworzony obiekt o nazwie listener wg kodu: ActionListener listener = new ActionListener() { Public void actionPerformed(ActionEvent e) { System.out.println(''OK''); } }; to:",
+      "answers": [
+        {
+          "content": "egzemplarz interfejsu ActionListener",
+          "answer": false
+        },
+        {
+          "content": "jawny egzemplarz klasy anonimowej typu interfejsu ActionListener",
+          "answer": true
+        },
+        {
+          "content": "Kod jest niepoprawny ponieważ nie można utworzyć obiektu interfejsu (brak konstruktora).",
+          "answer": false
+        },
+        {
+          "content": "słuchacz zdarzeń typu Action",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "Który z niżej wymienionych interfejsów nie posiada swojej klasy adaptacyjnej?",
+      "answers": [
+        {
+          "content": "java.awt.event.MouseListener",
+          "answer": true
+        },
+        {
+          "content": "java.awt.event.WindowListener",
+          "answer": true
+        },
+        {
+          "content": "java.awt.event.ActionListener",
+          "answer": false
+        },
+        {
+          "content": "java.awt.event.KeyListener",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "Która składnia dodawania elementów do kolekcji ArrarList<String> arrayList = new ArrayList<String>(); jest poprawna?",
+      "answers": [
+        {
+          "content": "arrayList.set(''abc'');",
+          "answer": false
+        },
+        {
+          "content": "arrayList.add (''abc'');",
+          "answer": true
+        },
+        {
+          "content": "arrayList.set(123);",
+          "answer": false
+        },
+        {
+          "content": "arrayList.add(123);",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która składnia budowy słuchacza z zastosowaniem klasy adaptacyjnej przy obsłudze zdarzeń myszki jest poprawna?",
+      "answers": [
+        {
+          "content": "public class MyListener implements MouseListener {   }",
+          "answer": false
+        },
+        {
+          "content": "public class MyListener extends MouseAdapter {   }",
+          "answer": true
+        },
+        {
+          "content": "public class MyListener extends MouseListener {   }",
+          "answer": false
+        },
+        {
+          "content": "public class MyListener implements MouseAdapter {   }",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "W języku Java serwlet to:",
+      "answers": [
+        {
+          "content": "program Javy wykonywany na urządzeniu mobilnym, np. telefonie komórkowym",
+          "answer": false
+        },
+        {
+          "content": "program Javy wykonywany po stronie serwera i przetwarzający np. żądania klienta",
+          "answer": true
+        },
+        {
+          "content": "kod Javy wstawiony bezpośrednio do pliku HTML za pomocą znacznika <% … %>",
+          "answer": false
+        },
+        {
+          "content": "program Javy wykonywany po stronie klienta w przeglądarce internetowej",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Za pomocą polecenia import w języku Java importuje się:",
+      "answers": [
+        {
+          "content": "klasy",
+          "answer": true
+        },
+        {
+          "content": "pakiety",
+          "answer": false
+        },
+        {
+          "content": "interfejsy",
+          "answer": true
+        },
+        {
+          "content": "podpakiety",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która definicja nowej klasy apletu biblioteki Swing w języku Java jest poprawna?",
+      "answers": [
+        {
+          "content": "public class MyApplet extends java.applet.Applet(...); ",
+          "answer": false
+        },
+        {
+          "content": "public class MyApplet extends java.awt.Frame(...);",
+          "answer": false
+        },
+        {
+          "content": "public class MyApplet extends javax.swing.JApplet(...);",
+          "answer": true
+        },
+        {
+          "content": "public class MyApplet extends javax.swing.JFrame(...);",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "W aplecie języka Java, którego klasa główna implementuje interfejs obsługi zdarzeń ActionListener, dodanie słuchacza zdarzeń do obiektu przycisku button realizuje kod:",
+      "answers": [
+        {
+          "content": "button.addActionListener(button);",
+          "answer": false
+        },
+        {
+          "content": "button.addActionListener(this);",
+          "answer": true
+        },
+        {
+          "content": "this.addActionListener(button);",
+          "answer": false
+        },
+        {
+          "content": "this.addActionListener(this); ",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która składnia polecenia import w języku Java importuje klasę Button?",
+      "answers": [
+        {
+          "content": "import Button.java.awt; ",
+          "answer": false
+        },
+        {
+          "content": "import java.awt.Button;",
+          "answer": true
+        },
+        {
+          "content": "import java.Button.awt;",
+          "answer": false
+        },
+        {
+          "content": "import awt.java.Button;",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która definicja nowej klasy aplikacji biblioteki Swing w języku Java jest poprawna?",
+      "answers": [
+        {
+          "content": "public class MyAppl extends java.awt.Frame(...);",
+          "answer": false
+        },
+        {
+          "content": "public class MyAppl extends java.awt.JFrame(...);",
+          "answer": false
+        },
+        {
+          "content": "public class MyAppl extends javax.swing.Frame(...);",
+          "answer": false
+        },
+        {
+          "content": "public class MyAppl extends javax.swing.JFrame(...);",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "W aplecie języka Java, którego klasa główna implementuje interfejs obsługi zdarzeń MouseListener, dodanie słuchacza zdarzeń do obiektu samego apletu realizuje kod:",
+      "answers": [
+        {
+          "content": "addMouseListener(this);",
+          "answer": true
+        },
+        {
+          "content": "button.addMouseListener(this);",
+          "answer": false
+        },
+        {
+          "content": "this.addMouseListener(button);",
+          "answer": false
+        },
+        {
+          "content": "this.addMouseListener(this); ",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "question": "Które stwierdzenia dotyczące mechanizmu DOM obsługiwanego z poziomu języka Java są prawdziwe?",
+      "answers": [
+        {
+          "content": "DOM to klasa z biblioteki java.awt do rozkładu komponentów w kontenerach",
+          "answer": false
+        },
+        {
+          "content": "Interfejs Java API XML DOM pozwala na tworzenie nowego drzewa DOM ",
+          "answer": true
+        },
+        {
+          "content": "DOM odczytuje dokument XML sekwencyjnie od początku do końca i podczas tego procesu wywołuje metody tzw. wywołań zwrotnych",
+          "answer": false
+        },
+        {
+          "content": "DOM nie jest obsługiwany w języku Java",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "question": "Która składnia umożliwia przeprowadzenie parsowania pliku języka XML za pomocą interfejsu SAX języka Java?",
+      "answers": [
+        {
+          "content": "parser.parse(source, handler);",
+          "answer": true
+        },
+        {
+          "content": "transformer.transform(source, result);",
+          "answer": false
+        },
+        {
+          "content": "validator.validate(source);",
+          "answer": false
+        },
+        {
+          "content": "parser.parse(source); ",
+          "answer": false
+        }
       ]
     }
   ]

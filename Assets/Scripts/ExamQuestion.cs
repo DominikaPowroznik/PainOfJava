@@ -24,11 +24,11 @@ public class ExamQuestion : QuestionManager {
         Debug.Log(index);
         if (IsCorrect())
         {
-            Player.PlayerStats.WonPoints++;
+            ExamPlayer.GoodAnswered++;
         }
         else
         {
-            Player.PlayerStats.LostPoints++;
+            ExamPlayer.BadAnswered++;
             Debug.Log("Index zlego:" + index);
             wrongIndexes.Add(index);
             Debug.Log("Ile zlych:" + wrongIndexes.Count);
