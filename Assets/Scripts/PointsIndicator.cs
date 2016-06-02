@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class PointsIndicator : MonoBehaviour {
 
@@ -19,6 +19,7 @@ public class PointsIndicator : MonoBehaviour {
     {
         float _value = (float)_cur / _max;
 
+        pointsBarRect.GetComponent<Image>().color = new Color(0.0f, 0.58f, 0.0f, 1.0f);
         pointsBarRect.localScale = new Vector3(_value, pointsBarRect.localScale.y, pointsBarRect.localScale.z);
     }
 }

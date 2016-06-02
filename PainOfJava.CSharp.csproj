@@ -79,7 +79,6 @@
     <Compile Include="Assets\Scripts\ExamQuestion.cs" />
     <Compile Include="Assets\Scripts\GameMaster.cs" />
     <Compile Include="Assets\Scripts\GameOverUI.cs" />
-    <Compile Include="Assets\Scripts\IntroManager.cs" />
     <Compile Include="Assets\Scripts\Mark.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\PauseUI.cs" />
@@ -93,6 +92,8 @@
     <Compile Include="Assets\Scripts\QuestionPoint.cs" />
     <Compile Include="Assets\Scripts\QuestionsMaster.cs" />
     <Compile Include="Assets\Scripts\StatusIndicator.cs" />
+    <Compile Include="Assets\Scripts\SummaryUI1.cs" />
+    <Compile Include="Assets\Scripts\SummaryUI2.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
   </ItemGroup>
   <ItemGroup>

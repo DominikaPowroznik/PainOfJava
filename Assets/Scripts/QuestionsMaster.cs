@@ -19,7 +19,8 @@ public class QuestionsMaster : MonoBehaviour {
     private string jsonString;
     private JsonData itemData;
 
-    public static int questionPointsCount = 0;
+    public static int questionPointsCount = 20;
+    public static int spottedQuestionPointsCount = 0;
 
     public static List<Question> questions = new List<Question>();
     public static List<Question> questionsWithWrongAnswered = new List<Question>();
@@ -54,7 +55,7 @@ public class QuestionsMaster : MonoBehaviour {
     public static void arrangeWithWrongAnswered(List<int> wrongIndexes)
     {
         questionsWithWrongAnswered.Clear();
-        int questionsWithWrongCount = wrongIndexes.Count + (questions.Count - questionPointsCount);
+        int questionsWithWrongCount = wrongIndexes.Count + (questions.Count - spottedQuestionPointsCount);
 
         for (int i = 0; i < wrongIndexes.Count; i++)
         {

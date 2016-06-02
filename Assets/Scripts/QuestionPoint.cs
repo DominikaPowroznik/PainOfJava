@@ -25,7 +25,7 @@ public class QuestionPoint : QuestionManager {
             //pausing the game
             Time.timeScale = 0.0f;
 
-            QuestionsMaster.questionPointsCount++;
+            QuestionsMaster.spottedQuestionPointsCount++;
 
             FillWithData();
             questionCanvas.SetActive(true);

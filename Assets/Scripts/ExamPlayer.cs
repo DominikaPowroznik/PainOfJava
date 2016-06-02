@@ -19,9 +19,18 @@ public class ExamPlayer : MonoBehaviour {
         set { _badAnswered = value; }
     }
 
+    public static int GetAllAttempts()
+    {
+        return BadAnswered + GoodAnswered;
+    }
+
+
     void Start()
     {
         questionsToAnswer = QuestionsMaster.questionsToBeDisplay.Count;
+
+        //Player.PlayerStats.LostPoints = 0;
+        //Player.PlayerStats.WonPoints = 0;
     }
 
     

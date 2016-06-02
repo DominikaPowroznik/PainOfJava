@@ -3,17 +3,26 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour{
 
-    Text timeText;
-    float time = 30.0f * 60.0f;
+    Text timerText;
+    public static float timeForTest = 30.0f * 60.0f;
+    public static float timeLeft;
+
+    public GameObject summaryUI;
 
     void Awake()
     {
-        timeText = transform.GetComponentInChildren<Text>();
+        timeLeft = timeForTest;
+        timerText = transform.GetComponentInChildren<Text>();
     }
 
     void Update()
     {
-        time -= Time.deltaTime;
-        timeText.text = (time / 60 - time/60 % 1).ToString() + " : " + (time % 60 - time % 60 % 1).ToString();
+        timeLeft -= Time.deltaTime;
+        timerText.text = (timeLeft / 60 - timeLeft / 60 % 1).ToString() + " : " + (timeLeft % 60 - timeLeft % 60 % 1).ToString();
+
+        if(timeLeft <= 0)
+        {
+            summaryUI.SetActive(true); ;
+        }
     }
 }

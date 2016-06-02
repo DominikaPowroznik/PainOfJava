@@ -19,14 +19,14 @@ public class Player : MonoBehaviour {
         public static int WonPoints
         {
             get { return _wonPoints; }
-            set { _wonPoints = value; }
+            set { _wonPoints = value; Debug.Log(_wonPoints);  }
         }
 
         private static int _lostPoints = 0;
         public static int LostPoints
         {
             get { return _lostPoints; }
-            set { _lostPoints = value; }
+            set { _lostPoints = value; Debug.Log(_lostPoints); }
         }
 
         public int damage = 5;

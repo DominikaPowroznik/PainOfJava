@@ -27,7 +27,10 @@ public class GameMaster : MonoBehaviour {
 
     void Awake()
     {
-        if(gm == null)
+        //unpausing the game
+        Time.timeScale = 1.0f;
+
+        if (gm == null)
         {
             gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>(); ;
         }

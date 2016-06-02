@@ -11,13 +11,19 @@ public class QuestionManager : MonoBehaviour
     protected Toggle[] answerToggles = new Toggle[4];
     protected Button button;
 
-    protected static int index = 0;
+    protected static int index;
     protected static List<int> wrongIndexes = new List<int>();
 
     void Awake()
     {
         button = questionCanvas.transform.Find("Button").GetComponent<Button>();
         questionTransform = questionCanvas.transform.Find("Question");
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        if (level == 2)
+            index = 0;
     }
 
     protected void FillWithData()

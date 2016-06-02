@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class ExamQuestion : QuestionManager {
 
     int wrongCount;
+    public GameObject summaryUI;
 
     void Start()
     {
@@ -52,7 +53,8 @@ public class ExamQuestion : QuestionManager {
             }
             else
             {
-                Debug.Log("Koniec gry - wygra�e�?!");
+                summaryUI.SetActive(true);
+                //Debug.Log("Koniec gry - wygrałeś?!");
             }
         }
         NewRound();

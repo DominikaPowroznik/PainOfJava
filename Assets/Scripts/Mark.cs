@@ -4,7 +4,9 @@ using UnityEngine.UI;
 public class Mark : MonoBehaviour {
 
     private Text markText;
-    private int mark = 2;
+
+    public static float quotient;
+    public static int mark = 2;
 
     void Awake()
     {
@@ -14,7 +16,7 @@ public class Mark : MonoBehaviour {
 
     void Update()
     {
-        float quotient = (float)Player.PlayerStats.WonPoints/(float)QuestionsMaster.questions.Count;
+        quotient = (float)Player.PlayerStats.WonPoints/(float)QuestionsMaster.questionPointsCount;
         
         if (quotient > 0.9)
         {
