@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 
-public class QuestionManager : MonoBehaviour
+public class QuestionManager : QuestionsMaster
 {
     public GameObject questionCanvas;
 
@@ -13,17 +13,17 @@ public class QuestionManager : MonoBehaviour
 
     protected static int index;
     protected static List<int> wrongIndexes = new List<int>();
+    protected static List<int> correctIndexes = new List<int>();
 
     void Awake()
     {
         button = questionCanvas.transform.Find("Button").GetComponent<Button>();
-        questionTransform = questionCanvas.transform.Find("Question");
+        questionTransform = questionCanvas.transform.Find("Question");      
     }
 
     void OnLevelWasLoaded(int level)
     {
-        if (level == 2)
-            index = 0;
+        index = 0;
     }
 
     protected void FillWithData()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour {
 
@@ -13,10 +14,9 @@ public class PauseUI : MonoBehaviour {
         }
     }
 
-    public void Quit()
+    public void BackToMenu()
     {
-        Debug.Log("Game quit");
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
     public void Reload()

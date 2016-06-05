@@ -79,7 +79,6 @@
     <Compile Include="Assets\Scripts\ExamQuestion.cs" />
     <Compile Include="Assets\Scripts\GameMaster.cs" />
     <Compile Include="Assets\Scripts\GameOverUI.cs" />
-    <Compile Include="Assets\Scripts\Mark.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\PauseUI.cs" />
     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />

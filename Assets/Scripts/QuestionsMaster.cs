@@ -19,16 +19,27 @@ public class QuestionsMaster : MonoBehaviour {
     private string jsonString;
     private JsonData itemData;
 
-    public static int questionPointsCount = 20;
-    public static int spottedQuestionPointsCount = 0;
+    public static int questionPointsCount;
+    protected static int spottedQuestionPointsCount;
 
-    public static List<Question> questions = new List<Question>();
-    public static List<Question> questionsWithWrongAnswered = new List<Question>();
-    public static List<Question> questionsToBeDisplay = new List<Question>();
+    protected static List<Question> questionsToBeDisplay = new List<Question>();
 
     void Awake()
     {
-        jsonString = File.ReadAllText(Application.dataPath + "/Questions.json");
+        questionPointsCount = 3;
+        spottedQuestionPointsCount = 0;
+        questionsToBeDisplay.Clear();
+
+        List<Question> questions = new List<Question>();
+        LoadFromJson(questions, "/TestQuestions.json");
+
+        questionsToBeDisplay.AddRange(questions);
+        RandomizeQuestions(questionsToBeDisplay);
+    }
+
+    void LoadFromJson(List<Question> questions, string path)
+    {
+        jsonString = File.ReadAllText(Application.dataPath + path);
         itemData = JsonMapper.ToObject(jsonString);
 
         int questionsCount = itemData["questions"].Count;
@@ -47,43 +58,46 @@ public class QuestionsMaster : MonoBehaviour {
             }
             questions.Add(q);
         }
-
-        questionsToBeDisplay = questions;
-        //RandomizeQuestions(questionsToBeDisplay);
     }
 
-    public static void arrangeWithWrongAnswered(List<int> wrongIndexes)
+    public static void arrangeWithWrongAnswered(List<int> wrongIndexes, List<int> correctIndexes)
     {
-        questionsWithWrongAnswered.Clear();
-        int questionsWithWrongCount = wrongIndexes.Count + (questions.Count - spottedQuestionPointsCount);
+        List<Question> questionsTemp = new List<Question>();
+        int questionsWithWrongCount = wrongIndexes.Count + (questionsToBeDisplay.Count - spottedQuestionPointsCount);
 
         for (int i = 0; i < wrongIndexes.Count; i++)
         {
-            Debug.Log(questions[wrongIndexes[i]].question);
-            questionsWithWrongAnswered.Add(questions[wrongIndexes[i]]);
+            questionsTemp.Add(questionsToBeDisplay[wrongIndexes[i]]);
         }
 
-        for(int i = wrongIndexes.Count; i < questionsWithWrongCount; i++)
+        for (int i = 0; i < questionsToBeDisplay.Count; i++)
         {
-            Debug.Log(questions[i].question);
-            questionsWithWrongAnswered.Add(questions[i]);
+            if (!(wrongIndexes.Contains(i) || correctIndexes.Contains(i)))
+            {
+                questionsTemp.Add(questionsToBeDisplay[i]);
+            }
         }
 
-        questionsToBeDisplay = questionsWithWrongAnswered;
-        //RandomizeQuestions(questionsToBeDisplay);
+        questionsToBeDisplay.Clear();
+        questionsToBeDisplay.AddRange(questionsTemp);
+
+        RandomizeQuestions(questionsToBeDisplay);
     }
 
     public static void arrangeWrongAnswered(List<int> wrongIndexes)
     {
-        questionsWithWrongAnswered.Clear();
+        List<Question> questionsTemp = new List<Question>();
+
         for (int i = 0; i < wrongIndexes.Count; i++)
         {
-            Debug.Log(questions[wrongIndexes[i]].question);
-            questionsWithWrongAnswered.Add(questions[wrongIndexes[i]]);
+            Debug.Log(questionsToBeDisplay[wrongIndexes[i]].question);
+            questionsTemp.Add(questionsToBeDisplay[wrongIndexes[i]]);
         }
 
-        questionsToBeDisplay = questionsWithWrongAnswered;
-        //RandomizeQuestions(questionsToBeDisplay);
+        questionsToBeDisplay.Clear();
+        questionsToBeDisplay.AddRange(questionsTemp);
+
+        RandomizeQuestions(questionsToBeDisplay);
     }
 
     static void RandomizeQuestions(List<Question> list)
@@ -110,13 +124,5 @@ public class QuestionsMaster : MonoBehaviour {
                 list[i].answers[random] = tmp;
             }
         }
-
-        //Debug.Log(list.Count);
-        //for (int i = 0; i < list.Count; i++)
-        //{
-        //    Debug.Log("[" + i + "]->" + array[i].question);
-        //    Debug.Log("a)" + array[i].answers[0].content);
-        //    Debug.Log("b)" + array[i].answers[1].content);
-        //}
     }
 }

@@ -13,10 +13,6 @@ public class QuestionPoint : QuestionManager {
             {
                 Debug.LogError("Out of questions!");
 
-                //TODO: Place it somewhere else
-                QuestionsMaster.arrangeWithWrongAnswered(wrongIndexes);
-                wrongIndexes.Clear();
-
                 Destroy(this.gameObject);
 
                 return;
@@ -38,13 +34,12 @@ public class QuestionPoint : QuestionManager {
         if (IsCorrect())
         {
             Player.PlayerStats.WonPoints++;
+            correctIndexes.Add(index);
         }
         else
         {
             Player.PlayerStats.LostPoints++;
-            //Debug.Log("Index zlego:" + index);
             wrongIndexes.Add(index);
-            //Debug.Log("Ile zlych:" + wrongIndexes.Count);
         }
 
         PointsIndicator.SetPoints(Player.PlayerStats.WonPoints, Player.PlayerStats.GetAllPoints());

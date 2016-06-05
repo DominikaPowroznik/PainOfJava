@@ -19,14 +19,14 @@ public class Player : MonoBehaviour {
         public static int WonPoints
         {
             get { return _wonPoints; }
-            set { _wonPoints = value; Debug.Log(_wonPoints);  }
+            set { _wonPoints = value; }
         }
 
         private static int _lostPoints = 0;
         public static int LostPoints
         {
             get { return _lostPoints; }
-            set { _lostPoints = value; Debug.Log(_lostPoints); }
+            set { _lostPoints = value; }
         }
 
         public int damage = 5;
@@ -49,18 +49,15 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private StatusIndicator statusIndicator;
 
-    void Start()
-    {
-        playerStats.Init();
+    [SerializeField]
+    private GameObject pauseUI;
 
-        if (statusIndicator == null)
-        {
-            Debug.LogError("PLAYER: No StatusIndicator object referenced!");
-        }
-        else
-        {
-            statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
-        }
+    void OnLevelWasLoaded(int level)
+    {
+        PlayerStats.WonPoints = 0;
+        PlayerStats.LostPoints = 0;
+        playerStats.Init();
+        statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
     }
 
     public void Update()
@@ -68,6 +65,14 @@ public class Player : MonoBehaviour {
         if(transform.position.y < fallBoundary)
         {
             DamagePlayer(999999);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //pausing the game
+            Time.timeScale = 0.0f;
+
+            pauseUI.SetActive(true);
         }
     }
 

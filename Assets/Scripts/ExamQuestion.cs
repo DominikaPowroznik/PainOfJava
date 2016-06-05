@@ -3,12 +3,11 @@ using UnityEngine.UI;
 
 public class ExamQuestion : QuestionManager {
 
-    int wrongCount;
     public GameObject summaryUI;
 
     void Start()
     {
-        QuestionsMaster.arrangeWithWrongAnswered(wrongIndexes);
+        QuestionsMaster.arrangeWithWrongAnswered(wrongIndexes, correctIndexes);
         wrongIndexes.Clear();
 
         NewRound();
@@ -26,13 +25,12 @@ public class ExamQuestion : QuestionManager {
         if (IsCorrect())
         {
             ExamPlayer.GoodAnswered++;
+            correctIndexes.Add(index);
         }
         else
         {
             ExamPlayer.BadAnswered++;
-            Debug.Log("Index zlego:" + index);
             wrongIndexes.Add(index);
-            Debug.Log("Ile zlych:" + wrongIndexes.Count);
         }
 
         ChangeButton("Dalej", Next);
@@ -45,8 +43,7 @@ public class ExamQuestion : QuestionManager {
         if (index >= QuestionsMaster.questionsToBeDisplay.Count)
         {
             index = 0;
-            wrongCount = wrongIndexes.Count;
-            if (wrongCount > 0)
+            if (wrongIndexes.Count > 0)
             {
                 QuestionsMaster.arrangeWrongAnswered(wrongIndexes);
                 wrongIndexes.Clear();
@@ -54,7 +51,6 @@ public class ExamQuestion : QuestionManager {
             else
             {
                 summaryUI.SetActive(true);
-                //Debug.Log("Koniec gry - wygrałeś?!");
             }
         }
         NewRound();

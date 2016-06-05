@@ -22,9 +22,6 @@ public class GameMaster : MonoBehaviour {
     [SerializeField]
     private GameObject gameOverUI;
 
-    [SerializeField]
-    private GameObject pauseUI;
-
     void Awake()
     {
         //unpausing the game
@@ -39,17 +36,6 @@ public class GameMaster : MonoBehaviour {
     void Start()
     {
         remainingLives = maxLives;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //pausing the game
-            Time.timeScale = 0.0f;
-
-            pauseUI.SetActive(true);
-        }
     }
 
     public void EndGame()

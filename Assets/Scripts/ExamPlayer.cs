@@ -3,16 +3,14 @@ using System.Collections;
 
 public class ExamPlayer : MonoBehaviour {
 
-    static int questionsToAnswer;
-
-    private static int _goodAnswered = 0;
+    private static int _goodAnswered;
     public static int GoodAnswered
     {
         get { return _goodAnswered; }
         set { _goodAnswered = value; }
     }
 
-    private static int _badAnswered = 0;
+    private static int _badAnswered;
     public static int BadAnswered
     {
         get { return _badAnswered; }
@@ -24,14 +22,23 @@ public class ExamPlayer : MonoBehaviour {
         return BadAnswered + GoodAnswered;
     }
 
+    [SerializeField]
+    private GameObject pauseUI;
 
-    void Start()
+    void OnLevelWasLoaded(int level)
     {
-        questionsToAnswer = QuestionsMaster.questionsToBeDisplay.Count;
-
-        //Player.PlayerStats.LostPoints = 0;
-        //Player.PlayerStats.WonPoints = 0;
+        GoodAnswered = 0;
+        BadAnswered = 0;
     }
 
-    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //pausing the game
+            Time.timeScale = 0.0f;
+
+            pauseUI.SetActive(true);
+        }
+    }
 }
