@@ -2,6 +2,7 @@
 
 NTP Project
 
+v1.9 - added summary screens, TODO: sometimes it crashes "index out of range"
 v1.8 - added self-made portal sprites animations and trigger to end level1, added new sub-levels - intros with text introductions
 v1.7 - at last! it was really nasty, but displaying questions with wrong answered one is working (I hope)
 v1.66 - loading questions, code refractor... but reloading for new round (wrong questions) is not working, will try to change everything from tables to lists
