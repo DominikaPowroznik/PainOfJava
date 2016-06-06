@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour{
 
-    Text timerText;
-    public static float timeForTest = 30.0f * 60.0f;
+    private Text timerText;
+    
+    public static float timeForTest = 15.0f * 60.0f;
     public static float timeLeft;
 
     public GameObject summaryUI;

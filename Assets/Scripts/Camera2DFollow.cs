@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
 
 namespace UnityStandardAssets._2D
 {
     public class Camera2DFollow : MonoBehaviour
     {
-
-        //MY: this was a Target; every refrence in code below was target.position, not target.transform.position
         public GameObject target;
         public float damping = 1;
         public float lookAheadFactor = 3;
@@ -24,19 +21,16 @@ namespace UnityStandardAssets._2D
         private Vector3 m_CurrentVelocity;
         private Vector3 m_LookAheadPos;
 
-        // Use this for initialization
         private void Start()
         {
             m_LastTargetPosition = target.transform.position;
             m_OffsetZ = (transform.position - target.transform.position).z;
             transform.parent = null;
 
-            //MY
             character = target.GetComponent<PlatformerCharacter2D>();
         }
 
 
-        // Update is called once per frame
         private void Update()
         {
             //MY: fixing errors when player is killed
@@ -46,7 +40,6 @@ namespace UnityStandardAssets._2D
                 return;
             }
 
-            // only update lookahead pos if accelerating or changed direction
             float xMoveDelta = (target.transform.position - m_LastTargetPosition).x;
 
             bool updateLookAheadTarget = Mathf.Abs(xMoveDelta) > lookAheadMoveThreshold;

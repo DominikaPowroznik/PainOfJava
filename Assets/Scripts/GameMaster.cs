@@ -3,12 +3,14 @@ using System.Collections;
 
 public class GameMaster : MonoBehaviour {
 
-    //we want to have only 1 instance of GM
     public static GameMaster gm;
 
-    public Transform playerPrefab;
-    public Transform spawnPoint;
-    public float spawnDelay = 2f;
+    [SerializeField]
+    private Transform playerPrefab;
+    [SerializeField]
+    private Transform spawnPoint;
+    [SerializeField]
+    private float spawnDelay = 2f;
 
     [SerializeField]
     private int maxLives = 3;

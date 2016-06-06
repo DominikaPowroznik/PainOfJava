@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour {
 
-    public GameObject summaryUI;
+    [SerializeField]
+    private GameObject summaryUI;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -12,7 +12,6 @@ public class Portal : MonoBehaviour {
         if (player != null)
         {
             summaryUI.SetActive(true);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

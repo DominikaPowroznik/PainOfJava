@@ -26,12 +26,12 @@ public class QuestionsMaster : MonoBehaviour {
 
     void Awake()
     {
-        questionPointsCount = 3;
+        questionPointsCount = 20;
         spottedQuestionPointsCount = 0;
         questionsToBeDisplay.Clear();
 
         List<Question> questions = new List<Question>();
-        LoadFromJson(questions, "/TestQuestions.json");
+        LoadFromJson(questions, "/Questions.json");
 
         questionsToBeDisplay.AddRange(questions);
         RandomizeQuestions(questionsToBeDisplay);
@@ -90,7 +90,6 @@ public class QuestionsMaster : MonoBehaviour {
 
         for (int i = 0; i < wrongIndexes.Count; i++)
         {
-            Debug.Log(questionsToBeDisplay[wrongIndexes[i]].question);
             questionsTemp.Add(questionsToBeDisplay[wrongIndexes[i]]);
         }
 
@@ -102,7 +101,7 @@ public class QuestionsMaster : MonoBehaviour {
 
     static void RandomizeQuestions(List<Question> list)
     {
-        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+        // Knuth shuffle algorithm
 
         //randomize questions in array
         for (int i = 0; i < list.Count; i++)
@@ -119,7 +118,7 @@ public class QuestionsMaster : MonoBehaviour {
             for (int j = 0; j < list[i].answers.Length; j++)
             {
                 Question.Answers tmp = list[i].answers[j];
-                int random = Random.Range(i, list[i].answers.Length);
+                int random = Random.Range(0, list[i].answers.Length);
                 list[i].answers[j] = list[i].answers[random];
                 list[i].answers[random] = tmp;
             }

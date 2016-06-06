@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class QuestionPoint : QuestionManager {
 
@@ -9,19 +8,17 @@ public class QuestionPoint : QuestionManager {
 
         if (player != null)
         {
-            if (index >= QuestionsMaster.questionsToBeDisplay.Count)
+            if (index >= questionsToBeDisplay.Count)
             {
-                Debug.LogError("Out of questions!");
-
+                Debug.Log("Out of questions!");
                 Destroy(this.gameObject);
-
                 return;
             }
 
             //pausing the game
             Time.timeScale = 0.0f;
 
-            QuestionsMaster.spottedQuestionPointsCount++;
+            spottedQuestionPointsCount++;
 
             FillWithData();
             questionCanvas.SetActive(true);

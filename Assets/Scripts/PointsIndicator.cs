@@ -8,11 +8,6 @@ public class PointsIndicator : MonoBehaviour {
     void Start()
     {
         pointsBarRect = transform.Find("PointsBar").GetComponent<RectTransform>();
-
-        if (pointsBarRect == null)
-        {
-            Debug.LogError("POINTS INDICATOR: No PointsBar object!");
-        }
     }
 
     public static void SetPoints(int _cur, int _max)

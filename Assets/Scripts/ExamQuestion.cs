@@ -1,13 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ExamQuestion : QuestionManager {
 
-    public GameObject summaryUI;
+    [SerializeField]
+    private GameObject summaryUI;
 
     void Start()
     {
-        QuestionsMaster.arrangeWithWrongAnswered(wrongIndexes, correctIndexes);
+        arrangeWithWrongAnswered(wrongIndexes, correctIndexes);
         wrongIndexes.Clear();
 
         NewRound();
@@ -21,7 +21,6 @@ public class ExamQuestion : QuestionManager {
 
     void CheckAnswers()
     {
-        Debug.Log(index);
         if (IsCorrect())
         {
             ExamPlayer.GoodAnswered++;
@@ -40,12 +39,12 @@ public class ExamQuestion : QuestionManager {
     {
         UncheckToggles();
         index++;
-        if (index >= QuestionsMaster.questionsToBeDisplay.Count)
+        if (index >= questionsToBeDisplay.Count)
         {
             index = 0;
             if (wrongIndexes.Count > 0)
             {
-                QuestionsMaster.arrangeWrongAnswered(wrongIndexes);
+                arrangeWrongAnswered(wrongIndexes);
                 wrongIndexes.Clear();
             }
             else

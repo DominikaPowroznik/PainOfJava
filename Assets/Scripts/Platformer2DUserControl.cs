@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -10,12 +9,10 @@ namespace UnityStandardAssets._2D
         private PlatformerCharacter2D character;
         private bool jump;
 
-
         private void Awake()
         {
             character = GetComponent<PlatformerCharacter2D>();
         }
-
 
         private void Update()
         {
@@ -24,7 +21,6 @@ namespace UnityStandardAssets._2D
                 jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
         }
-
 
         private void FixedUpdate()
         {

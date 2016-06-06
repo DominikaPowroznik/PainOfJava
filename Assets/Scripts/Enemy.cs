@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
@@ -15,7 +14,7 @@ public class Enemy : MonoBehaviour {
             set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
         }
 
-        public int damage = 20;
+        public int damage = 1;
 
         public void Init()
         {
@@ -23,9 +22,11 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    public int fallBoundary = -10;
+    [SerializeField]
+    private int fallBoundary = -10;
 
-    public EnemyStats enemyStats = new EnemyStats();
+    [SerializeField]
+    private EnemyStats enemyStats = new EnemyStats();
 
     [Header("Optional: ")]
     [SerializeField]

@@ -2,14 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-
 public class QuestionManager : QuestionsMaster
 {
-    public GameObject questionCanvas;
+    [SerializeField]
+    protected GameObject questionCanvas;
 
-    protected Transform questionTransform;
-    protected Toggle[] answerToggles = new Toggle[4];
-    protected Button button;
+    private Transform questionTransform;
+    private Toggle[] answerToggles = new Toggle[4];
+    private Button button;
 
     protected static int index;
     protected static List<int> wrongIndexes = new List<int>();

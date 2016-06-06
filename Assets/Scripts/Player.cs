@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class Player : MonoBehaviour {
 
@@ -44,7 +43,8 @@ public class Player : MonoBehaviour {
 
     public PlayerStats playerStats = new PlayerStats();
 
-    public int fallBoundary = -10;
+    [SerializeField]
+    private int fallBoundary = -10;
 
     [SerializeField]
     private StatusIndicator statusIndicator;
@@ -52,12 +52,16 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private GameObject pauseUI;
 
+    void Start()
+    {
+        playerStats.Init();
+        statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
+    }
+
     void OnLevelWasLoaded(int level)
     {
         PlayerStats.WonPoints = 0;
         PlayerStats.LostPoints = 0;
-        playerStats.Init();
-        statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
     }
 
     public void Update()

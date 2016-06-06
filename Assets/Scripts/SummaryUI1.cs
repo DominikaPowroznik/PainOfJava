@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class SummaryUI1 : MonoBehaviour {
 
-    Text answersCountText;
-    Text percentOfCorrectCountText;
-    Text markCountText;
+    private Text answersCountText;
+    private Text percentOfCorrectCountText;
+    private Text markCountText;
 
     void Awake()
     {
