@@ -1,20 +1,20 @@
-# README #
+# README
 
 This game was created as a "Modern Programming Technologies" graduation project.
 
-##Review##
+## Review
 
 First level is a 2D, side-view, educational game. Second one, due to change of my mentor's mind, contains only exam questions with timer.
 
 Questions appearing throughout the gameplay concern Java programming language. Questions can be added/edited in .json file.
 
-##Technologies##
+## Technologies
 Unity (5.3.3f1) and C#
 
-##Language##
+## Language
 polish only (PL)
 
-###Changelog###
+### Changelog
 v.2.0 - last fixes done
 v1.98 - fixes, fixes, refractoring... hopefully it won't crash again with index out of range ;d
 v1.9 - added summary screens, TODO: sometimes it crashes "index out of range"
